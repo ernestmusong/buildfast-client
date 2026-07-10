@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { lime, purple } from '@mui/material/colors';
 import CssBaseline from '@mui/material/CssBaseline';
 
 export const theme = createTheme({
@@ -56,7 +55,12 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "var(--font-sans), sans-serif", // Hook into Next.js font if applicable
+    h2: {
+      fontSize: 32,
+      fontWeight: 700,
+      textAlign: "center",
+      margin: "1rem 0",
+    },
   },
 });
 

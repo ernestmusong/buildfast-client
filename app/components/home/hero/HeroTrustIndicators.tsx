@@ -63,17 +63,17 @@ export default function HeroTrustIndicators() {
           >
             <Box
               sx={{
-                width: 38,
-                height: 38,
-                borderRadius: "50%",
+                // width: 38,
+                // height: 38,
+                // borderRadius: "50%",
 
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
 
-                bgcolor: "primary.main",
+                // bgcolor: "primary.main",
 
-                color: "primary.contrastText",
+                color: "primary.main",
 
                 flexShrink: 0,
 

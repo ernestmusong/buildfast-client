@@ -24,14 +24,14 @@ export default function HeroContent() {
       <Chip
         icon={<PublicIcon fontSize="small" />}
         label="Powering payments for Africa"
-        color="primary"
+        // color="primary"
         variant="filled"
         sx={{
           borderRadius: "999px",
           px: 1,
           height: 38,
           fontWeight: 600,
-          bgcolor: "primary.50",
+        //   bgcolor: "primary.50",
           color: "primary.main",
           "& .MuiChip-icon": {
             color: "primary.main",
@@ -52,14 +52,11 @@ export default function HeroContent() {
 
           fontSize: {
             xs: "2.8rem",
-            sm: "3.4rem",
-            md: "4.3rem",
-            lg: "4.8rem",
+            lg: "3.4rem",
           },
         }}
       >
-        Modern{" "}
-
+        Fast{ ' '}
         <Box
           component="span"
           sx={{
@@ -68,14 +65,13 @@ export default function HeroContent() {
         >
           payment
         </Box>
-
         <br />
 
         infrastructure for
 
         <br />
 
-        African businesses
+        businesses in Cameroon
       </Typography>
 
       {/* Description */}

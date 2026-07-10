@@ -17,29 +17,35 @@ import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 
 const features = [
   {
-    title: "Accept Payments",
-    description: "Collect MTN MoMo & Orange Money payments.",
+    title: "Accept payments",
+    description:  "Accept MTN Mobile Money and Orange Money payments through a simple and reliable API.",
     icon: PaymentsOutlinedIcon,
   },
   {
-    title: "Send Payouts",
-    description: "Transfer funds securely to customers.",
+    title:  "Instant Payouts",
+    description: "Send money to customers, suppliers, and partners instantly with secure disbursement APIs.",
     icon: AccountBalanceWalletOutlinedIcon,
   },
   {
-    title: "Secure & Reliable",
-    description: "Enterprise-grade security and compliance.",
+    title: "Enterprise Security",
+    description:  "Protect your business with API keys, IP whitelisting, phone whitelisting, and advanced security controls.",
     icon: SecurityOutlinedIcon,
   },
   {
     title: "Developer First",
-    description: "Simple APIs with excellent documentation.",
+    description: "Get started quickly with sandbox testing, SDKs, comprehensive documentation, and API examples.",
     icon: CodeOutlinedIcon,
   },
   {
     title: "Real-time Insights",
-    description: "Track transactions with live analytics.",
+    description: "Monitor transactions, balances, API activity, and generate detailed financial reports from your dashboard.",
     icon: InsightsOutlinedIcon,
+  },
+  {
+    icon: "🔔",
+    title: "Webhooks & Events",
+    description:
+      "Receive real-time notifications whenever deposits, withdrawals, refunds, or account events occur.",
   },
 ];
 
@@ -59,6 +65,44 @@ export default function HeroFeatures() {
         },
       }}
     >
+        <Container maxWidth="xl"
+        sx={{
+            margin: "0 auto",
+            maxWidth: {lg: 700},
+            textAlign: "center",
+            marginBottom: 4
+        }}
+          
+        >
+          <Box
+            component='span'
+          sx={{
+            letterSpacing: 2,
+            fontWeight: 700,
+            color: "primary.main",
+            margin: "0 auto"
+          }}
+          >
+            WHY BUILDFAST
+          </Box>
+          <Typography
+            variant='h2'
+            sx={{
+                color: "text.primary",
+            }}
+          >
+             Everything you need to build powerful payment experiences
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{
+                color: "text.secondary",
+            }}
+            >
+            Build secure payment flows, automate transactions, and
+            scale your business using APIs designed for modern developers.
+          </Typography>
+        </Container>
       <Container maxWidth="xl">
         <Grid container spacing={3}>
           {features.map((feature) => {
@@ -71,7 +115,7 @@ export default function HeroFeatures() {
                   xs: 12,
                   sm: 6,
                   md: 4,
-                  lg: 2.4,
+                  lg: 3,
                 }}
               >
                 <Paper
