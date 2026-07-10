@@ -14,6 +14,7 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 
 const features = [
   {
@@ -42,7 +43,7 @@ const features = [
     icon: InsightsOutlinedIcon,
   },
   {
-    icon: "🔔",
+    icon: NotificationsNoneOutlinedIcon,
     title: "Webhooks & Events",
     description:
       "Receive real-time notifications whenever deposits, withdrawals, refunds, or account events occur.",

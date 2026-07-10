@@ -63,10 +63,6 @@ export default function HeroTrustIndicators() {
           >
             <Box
               sx={{
-                // width: 38,
-                // height: 38,
-                // borderRadius: "50%",
-
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

@@ -23,14 +23,14 @@ export default function HeroContent() {
 
       <Chip
         icon={<PublicIcon fontSize="small" />}
-        label="Powering payments for Africa"
-        // color="primary"
+        label="Powering payments for Cameroon"
         variant="filled"
         sx={{
           borderRadius: "999px",
           px: 1,
           height: 38,
           fontWeight: 600,
+          textAlign: {sx: "center"},
         //   bgcolor: "primary.50",
           color: "primary.main",
           "& .MuiChip-icon": {
@@ -149,7 +149,7 @@ export default function HeroContent() {
         borderRadius: "50%",
         border: "3px solid",
         borderColor: "background.paper",
-        bgcolor: `primary.${shade}`, // Resolves perfectly to clean strings
+        bgcolor: `primary.${shade}`,
       }}
     />
   ))}
