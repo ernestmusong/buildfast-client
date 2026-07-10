@@ -1,0 +1,206 @@
+.developer {
+  padding: 120px 2rem;
+  background: #0f172a;
+  color: white;
+}
+
+
+.developer-container {
+  max-width: 1280px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+
+.section-badge {
+  color: #60a5fa;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: .9rem;
+}
+
+
+.developer h2 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+
+.developer p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+
+.developer-list {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+  color: #e2e8f0;
+}
+
+
+.developer-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+
+.primary-button {
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+
+.secondary-button {
+  border: 1px solid #334155;
+  color: white;
+  text-decoration: none;
+
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+}
+
+
+.code-window {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+.code-header {
+  height: 60px;
+  background: #111827;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 1rem;
+
+  border-bottom: 1px solid #1e293b;
+}
+
+
+.tabs {
+  display: flex;
+  gap: .5rem;
+}
+
+
+.tabs button {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+
+  cursor: pointer;
+
+  padding: .5rem 1rem;
+  border-radius: 8px;
+}
+
+
+.tabs .active {
+  background: #1e293b;
+  color: white;
+}
+
+
+.copy-btn {
+  background: #1e293b;
+  color: white;
+
+  border: none;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+
+.code-window pre {
+  padding: 2rem;
+
+  color: #e2e8f0;
+  overflow-x: auto;
+
+  font-size: .95rem;
+  line-height: 1.7;
+}
+
+
+.response {
+  padding: 1rem 2rem;
+
+  border-top: 1px solid #1e293b;
+
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  color: #86efac;
+}
+
+
+.success-dot {
+  width: 10px;
+  height: 10px;
+
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .developer-container {
+    grid-template-columns: 1fr;
+  }
+
+
+  .developer h2 {
+    font-size: 2.3rem;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .developer {
+    padding: 80px 1.2rem;
+  }
+
+
+  .developer-actions {
+    flex-direction: column;
+  }
+
+
+  .tabs {
+    overflow-x: auto;
+  }
+
+
+  .code-window pre {
+    font-size: .85rem;
+  }
+
+}
