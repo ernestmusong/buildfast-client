@@ -1,5 +1,3 @@
-// data/products/collections.ts
-
 import { ProductData } from "@/types/product";
 
 export const collectionsData: ProductData = {

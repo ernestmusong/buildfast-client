@@ -3,13 +3,17 @@ import FlowSection from "./FlowSection";
 import FeaturesSection from "./FeaturesSection";
 
 import { ProductData } from "@/types/product";
+import { ReactElement } from "react";
+import CTASection from "./CTASection";
 
 type Props = {
   product: ProductData;
+  badgeIcon: ReactElement
 };
 
 export default function ProductPageTemplate({
   product,
+  badgeIcon
 }: Props) {
     
   return (
@@ -18,6 +22,7 @@ export default function ProductPageTemplate({
         heroTitle={product.heroTitle}
         heroDescription={product.heroDescription}
         badge={product.badge}
+        badgeIcon={badgeIcon}
         />
 
       {/* <ProductFeatures
@@ -36,10 +41,10 @@ export default function ProductPageTemplate({
         useCases={product.useCases}
       /> */}
 
-      {/* <ProductCTA
-        title={product.ctaTitle}
-        description={product.ctaDescription}
-      /> */}
+      <CTASection
+        ctaTitle={product.ctaTitle}
+        ctaDescription={product.ctaDescription}
+      />
     </>
   );
 }

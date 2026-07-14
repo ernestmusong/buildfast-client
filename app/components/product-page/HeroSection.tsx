@@ -18,20 +18,22 @@ import { ProductData } from "@/types/product";
 
 interface HeroProps {
   heroTitle:string
-   heroDescription:string
-   badge:string
+  heroDescription:string
+  badge:string
+  badgeIcon: any
 }
-const HeroSection: React.FC<HeroProps> = ({heroTitle, heroDescription, badge}) => {
+const HeroSection: React.FC<HeroProps> = ({heroTitle, heroDescription, badge, badgeIcon}) => {
   return (
     <Box
       sx={{
-        py: { xs: 10, md: 14 },
+        mt:2
       }}
     >
       <Container maxWidth="lg">
         <Grid container spacing={6}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Chip
+             icon={badgeIcon}
               label={badge}
               variant="filled"
               sx={{
@@ -58,13 +60,11 @@ const HeroSection: React.FC<HeroProps> = ({heroTitle, heroDescription, badge}) =
 
             <Typography
               gutterBottom
+              variant="subtitle1"
+         
               sx={{
-        //   mb: 4,
-          color: "text.secondary",
-          fontSize: "1.15rem",
-          lineHeight: 1.9,
-          maxWidth: 520,
-        }}
+               color: "text.secondary",
+              }}
             >
                {heroDescription}
             </Typography>

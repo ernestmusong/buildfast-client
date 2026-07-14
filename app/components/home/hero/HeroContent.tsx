@@ -12,11 +12,7 @@ export default function HeroContent() {
         position: "relative",
         zIndex: 2,
         maxWidth: 560,
-        py: {
-          xs: 6,
-          md: 8,
-          lg: 10,
-        },
+        mt:2
       }}
     >
       {/* Badge */}

@@ -1,5 +1,7 @@
 // types/product.ts
 
+import { ReactElement } from "react";
+
 export interface ProductFeature {
   title: string;
   description: string;
@@ -23,6 +25,7 @@ export interface ProductData {
   keywords: string[];
 
   badge: string;
+  badgeIcon: any
 
   heroTitle: string;
   heroDescription: string;
