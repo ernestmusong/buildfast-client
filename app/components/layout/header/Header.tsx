@@ -23,7 +23,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 // Navigation Data Configuration
 const NAV_ITEMS = [
-  {
+ {
     label: "Products",
     children: [
       { label: "Collections API", href: "/products/collections" },

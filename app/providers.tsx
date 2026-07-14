@@ -5,6 +5,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
+const baseTheme = createTheme();
+
 export const theme = createTheme({
   // Enables CSS variables support for smooth dark/light mode switches
   cssVariables: true, 
@@ -54,6 +56,7 @@ export const theme = createTheme({
       },
     },
   },
+
   typography: {
     h2: {
       fontSize: 32,
@@ -61,6 +64,25 @@ export const theme = createTheme({
       textAlign: "center",
       margin: "1rem 0",
     },
+    h1: {
+          mt: 4,
+          fontWeight: 800,
+          letterSpacing: "-0.04em",
+          lineHeight: 1.05,
+          color: "#111827",
+          fontSize: '2rem',
+      '@media (min-width:922px)': {
+        fontSize: '2.2rem',
+      },
+      [baseTheme.breakpoints.up('lg')]: {
+        fontSize: '2.5rem',
+      },
+        },
+        // subtitle1: {
+        //   fontSize: "1.15rem",
+        //   lineHeight: 1.9,
+        //   maxWidth: 520,
+        // },
   },
 });
 

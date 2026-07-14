@@ -95,7 +95,7 @@ export default function HeroFeatures() {
              Everything you need to build powerful payment experiences
           </Typography>
           <Typography
-            variant="subtitle1"
+            variant="subtitle2"
             sx={{
                 color: "text.secondary",
             }}

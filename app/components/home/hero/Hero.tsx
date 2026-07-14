@@ -17,11 +17,11 @@ export default function Hero() {
         overflow: "hidden",
         bgcolor: "background.default",
 
-        pt: {
-          xs: 6,
-          md: 10,
-          lg: 12,
-        },
+        // pt: {
+        //   xs: 6,
+        //   md: 10,
+        //   lg: 12,
+        // },
 
         pb: {
           xs: 4,

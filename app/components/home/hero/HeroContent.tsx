@@ -30,8 +30,8 @@ export default function HeroContent() {
           px: 1,
           height: 38,
           fontWeight: 600,
+          mb: 3,
           textAlign: {sx: "center"},
-        //   bgcolor: "primary.50",
           color: "primary.main",
           "& .MuiChip-icon": {
             color: "primary.main",
@@ -43,18 +43,7 @@ export default function HeroContent() {
 
       <Typography
         component="h1"
-        sx={{
-          mt: 4,
-          fontWeight: 800,
-          letterSpacing: "-0.04em",
-          lineHeight: 1.05,
-          color: "text.primary",
-
-          fontSize: {
-            xs: "2.8rem",
-            lg: "3.4rem",
-          },
-        }}
+        variant="h1"
       >
         Fast{ ' '}
         <Box
@@ -77,12 +66,9 @@ export default function HeroContent() {
       {/* Description */}
 
       <Typography
+        variant="subtitle1"
         sx={{
-          mt: 4,
           color: "text.secondary",
-          fontSize: "1.15rem",
-          lineHeight: 1.9,
-          maxWidth: 520,
         }}
       >
         Accept payments, send payouts, and manage your business

@@ -13,15 +13,8 @@ import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded";
 export default function HeroButtons() {
   return (
     <Stack
-      direction={{ xs: "column", sm: "row" }}
+      direction='row'
       spacing={2}
-      sx={{
-        width: "100%",
-        alignItems: {
-          xs: "stretch",
-          sm: "center",
-        },
-      }}
     >
       {/* Primary CTA */}
 
@@ -31,17 +24,8 @@ export default function HeroButtons() {
         variant="contained"
         endIcon={<ArrowForwardRoundedIcon />}
         size="large"
-        sx={{
-          px: 4,
-          height: 56,
-          minWidth: 210,
-
-          borderRadius: 3,
-
-          fontSize: ".98rem",
-          fontWeight: 700,
+         sx={{
           textTransform: "none",
-
           boxShadow: (theme) =>
             `0 12px 30px ${theme.palette.primary.main}33`,
 
@@ -74,14 +58,6 @@ export default function HeroButtons() {
         startIcon={<MenuBookRoundedIcon />}
         size="large"
         sx={{
-          px: 4,
-          height: 56,
-          minWidth: 210,
-
-          borderRadius: 3,
-
-          fontSize: ".98rem",
-          fontWeight: 600,
           textTransform: "none",
 
           borderWidth: 1.5,
