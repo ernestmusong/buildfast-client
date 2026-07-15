@@ -9,21 +9,25 @@ import {
   Typography,
 } from "@mui/material";
 
-const cases = [
-  "E-commerce",
-  "Schools",
-  "NGOs",
-  "Utilities",
-  "Subscriptions",
-  "Logistics",
-];
+type UseCases = {
+  cases: string[]
+}
 
-export default function UseCasesSection() {
+export default function UseCasesSection({cases}: UseCases) {
   return (
-    <Container maxWidth="lg">
-      <Box>
+    <Container maxWidth="lg"
+      sx={{
+        mb:12
+      }}
+    >
+      <Box
+       sx={{
+        mt:2
+       }}
+      >
         <Typography
-          variant="h3"
+          variant="h2"
+          color="text.secondary"
         >
           Built For Businesses
         </Typography>

@@ -61,10 +61,7 @@ export default function Security() {
       sx={{
         position: "relative",
         zIndex: 3,
-        mt: {
-          xs: 6,
-          lg: -4,
-        },
+        mt: 6,
         pb: {
           xs: 6,
           md: 8,
@@ -101,9 +98,7 @@ export default function Security() {
           </Typography>
           <Typography
             variant="subtitle1"
-            sx={{
-                color: "text.secondary",
-            }}
+            color="text.secondary"
             >
            BuildFast provides the controls businesses need to manage
             payments safely, protect customer funds, and monitor every

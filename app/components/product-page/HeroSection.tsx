@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded";
-import { ProductData } from "@/types/product";
 
 
 interface HeroProps {
@@ -25,8 +24,8 @@ interface HeroProps {
 const HeroSection: React.FC<HeroProps> = ({heroTitle, heroDescription, badge, badgeIcon}) => {
   return (
     <Box
-      sx={{
-        mt:2
+     sx={{
+        mb:12
       }}
     >
       <Container maxWidth="lg">

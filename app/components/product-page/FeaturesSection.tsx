@@ -1,5 +1,7 @@
 "use client";
 
+import { ProductFeature } from "@/types/product";
+
 import {
   Card,
   CardContent,
@@ -9,44 +11,21 @@ import {
   Box,
 } from "@mui/material";
 
-const features = [
-  {
-    title: "Instant Collections",
-    description:
-      "Collect payments from MTN Mobile Money and Orange Money wallets.",
-  },
-  {
-    title: "Payment Verification",
-    description:
-      "Verify payment status before delivering services.",
-  },
-  {
-    title: "Webhook Events",
-    description:
-      "Receive real-time notifications when payments complete.",
-  },
-  {
-    title: "Single API",
-    description:
-      "Integrate once and access multiple mobile money providers.",
-  },
-];
+ type Features = {
+  features: ProductFeature[]
+ }
 
-export default function FeaturesSection() {
+export default function FeaturesSection({features}:Features) {
   return (
     <Container maxWidth="lg">
       <Box
       sx={{
-        py: 12
+        mb:12
       }}
       >
         <Typography
-          variant="h3"
-          sx={{
-            mb: 6,
-            fontWeight: 700,
-          }}
-           
+          variant="h2"
+          color="text.secondary"
         >
           Collect Mobile Money Payments
         </Typography>

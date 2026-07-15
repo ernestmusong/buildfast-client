@@ -1,5 +1,7 @@
 "use client";
 
+import { ProductFlowStep } from "@/types/product";
+
 import {
   Box,
   Container,
@@ -7,22 +9,21 @@ import {
   Typography,
 } from "@mui/material";
 
-export default function FlowSection() {
+type FlowSteps = {
+  steps: ProductFlowStep[]
+}
+
+export default function FlowSection({steps}:FlowSteps) {
   return (
     <Container maxWidth="md">
       <Box
       sx={{
-        py:10
+        mb:12
       }}
       >
         <Typography
-          variant="h3"
-           
-          sx={{
-            mb:6,
-            textAlign:"center",
-            fontWeight:800
-          }}
+          variant="h2"
+          color="text.secondary"
         >
           How Collections Work
         </Typography>
@@ -35,7 +36,7 @@ export default function FlowSection() {
           }}
         >
           <Typography>
-            Customer
+            {steps[0].label}
           </Typography>
 
           <Typography sx={{my:2}}>
@@ -43,7 +44,7 @@ export default function FlowSection() {
           </Typography>
 
           <Typography>
-            BuildFast Collections API
+            {steps[1].label}
           </Typography>
 
           <Typography sx={{my:2}}>
@@ -51,15 +52,7 @@ export default function FlowSection() {
           </Typography>
 
           <Typography>
-            MTN Mobile Money
-          </Typography>
-
-          <Typography>
-            or
-          </Typography>
-
-          <Typography>
-            Orange Money
+            {steps[2].label}
           </Typography>
 
           <Typography sx={{my:2}}>
@@ -67,7 +60,7 @@ export default function FlowSection() {
           </Typography>
 
           <Typography>
-            Merchant Account
+            {steps[3].label}
           </Typography>
         </Paper>
       </Box>

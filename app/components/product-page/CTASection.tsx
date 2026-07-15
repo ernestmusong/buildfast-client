@@ -16,8 +16,8 @@ interface CTAProps {
 export default function CTASection({ctaTitle, ctaDescription}: CTAProps) {
   return (
     <Box
-      sx={{
-        py: 14,
+     sx={{
+        mb:12
       }}
     >
       <Container
@@ -27,18 +27,18 @@ export default function CTASection({ctaTitle, ctaDescription}: CTAProps) {
         }}
       >
         <Typography
-          variant="h3"
+          variant="h2"
           gutterBottom
-          sx={{fontWeight: 800}}
+          sx={{
+                color: "text.primary",
+            }}
         >
           {ctaTitle}
         </Typography>
 
         <Typography
           color="text.secondary"
-          sx={{
-            mb:4
-          }}
+           variant="subtitle1"
         >
           {ctaDescription}
         </Typography>

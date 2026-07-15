@@ -5,6 +5,7 @@ import FeaturesSection from "./FeaturesSection";
 import { ProductData } from "@/types/product";
 import { ReactElement } from "react";
 import CTASection from "./CTASection";
+import UseCasesSection from "./UseCasesSection";
 
 type Props = {
   product: ProductData;
@@ -17,7 +18,7 @@ export default function ProductPageTemplate({
 }: Props) {
     
   return (
-    <>
+    <main>
       <HeroSection 
         heroTitle={product.heroTitle}
         heroDescription={product.heroDescription}
@@ -25,26 +26,26 @@ export default function ProductPageTemplate({
         badgeIcon={badgeIcon}
         />
 
-      {/* <ProductFeatures
+      <FeaturesSection
         features={product.features}
-      /> */}
+      />
 
-      {/* <ProductFlow
+      <FlowSection
         steps={product.flowSteps}
-      /> */}
+      />
 
       {/* <ProductApiExample
         example={product.apiExample}
       /> */}
 
-      {/* <ProductUseCases
-        useCases={product.useCases}
-      /> */}
+      <UseCasesSection
+        cases={product.useCases}
+      />
 
       <CTASection
         ctaTitle={product.ctaTitle}
         ctaDescription={product.ctaDescription}
       />
-    </>
+    </main>
   );
 }

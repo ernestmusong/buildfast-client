@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import {
   AppBar,
   Toolbar,
@@ -345,19 +346,36 @@ export default function Header() {
               Sign In
             </Button>
             <Button
-              component={Link}
-              href="/register"
-              variant="contained"
-              fullWidth
-              onClick={handleDrawerToggle}
-              sx={{
-                fontWeight: 600,
-                textTransform: "none",
-                boxShadow: "none",
-              }}
-            >
-              Get API Key
-            </Button>
+        component={Link}
+        href="/register"
+        variant="contained"
+        endIcon={<ArrowForwardRoundedIcon />}
+        onClick={handleDrawerToggle}
+        size="large"
+         sx={{
+          textTransform: "none",
+          boxShadow: (theme) =>
+            `0 12px 30px ${theme.palette.primary.main}33`,
+
+          transition: "all .25s ease",
+
+          "&:hover": {
+            transform: "translateY(-2px)",
+            boxShadow: (theme) =>
+              `0 18px 40px ${theme.palette.primary.main}55`,
+          },
+
+          "& .MuiButton-endIcon": {
+            transition: ".25s",
+          },
+
+          "&:hover .MuiButton-endIcon": {
+            transform: "translateX(3px)",
+          },
+        }}
+      >
+        Get API Key
+      </Button>
           </List>
         </Box>
       </Drawer>
