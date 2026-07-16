@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductFlowStep } from "@/types/product";
+import { ProductFlowStep } from "@/types/products/product";
 
 import {
   Box,
@@ -25,7 +25,7 @@ export default function FlowSection({steps}:FlowSteps) {
           variant="h2"
           color="text.secondary"
         >
-          How Collections Work
+          {steps[0].label}
         </Typography>
 
         <Paper
@@ -35,14 +35,6 @@ export default function FlowSection({steps}:FlowSteps) {
             textAlign: "center",
           }}
         >
-          <Typography>
-            {steps[0].label}
-          </Typography>
-
-          <Typography sx={{my:2}}>
-            ↓
-          </Typography>
-
           <Typography>
             {steps[1].label}
           </Typography>
@@ -61,6 +53,14 @@ export default function FlowSection({steps}:FlowSteps) {
 
           <Typography>
             {steps[3].label}
+          </Typography>
+
+          <Typography sx={{my:2}}>
+            ↓
+          </Typography>
+
+          <Typography>
+            {steps[4].label}
           </Typography>
         </Paper>
       </Box>

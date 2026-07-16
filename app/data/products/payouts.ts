@@ -1,4 +1,4 @@
-import { ProductData } from "@/types/product";
+import { ProductData } from "@/types/products/product";
 
 export const payoutsData: ProductData = {
   slug: "payouts",
@@ -37,6 +37,7 @@ export const payoutsData: ProductData = {
   ],
 
   flowSteps: [
+    { label: "how payouts work" },
     { label: "Merchant" },
     { label: "BuildFast API" },
     { label: "MTN / Orange" },

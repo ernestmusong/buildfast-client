@@ -63,6 +63,7 @@ export const theme = createTheme({
       fontWeight: 700,
       textAlign: "center",
       margin: "1rem 0",
+      textTransform:"capitalize"
     },
     h1: {
           mt: 4,

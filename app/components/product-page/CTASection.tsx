@@ -46,7 +46,11 @@ export default function CTASection({ctaTitle, ctaDescription}: CTAProps) {
         <Stack
           direction="row"
           spacing={2}
-          sx={{justifyContent:"center"}}
+          sx={{
+            justifyContent:"center",
+            mt:4
+
+          }}
         >
           <Button
             variant="contained"

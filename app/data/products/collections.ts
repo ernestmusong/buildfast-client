@@ -1,4 +1,4 @@
-import { ProductData } from "@/types/product";
+import { ProductData } from "@/types/products/product";
 
 export const collectionsData: ProductData = {
   slug: "collections",
@@ -47,6 +47,7 @@ export const collectionsData: ProductData = {
   ],
 
   flowSteps: [
+    { label: "how collections work" },
     { label: "Customer" },
     { label: "BuildFast API" },
     { label: "MTN / Orange" },

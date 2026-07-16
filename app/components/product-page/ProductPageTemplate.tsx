@@ -2,7 +2,7 @@ import HeroSection from "./HeroSection";
 import FlowSection from "./FlowSection";
 import FeaturesSection from "./FeaturesSection";
 
-import { ProductData } from "@/types/product";
+import { ProductData } from "@/types/products/product";
 import { ReactElement } from "react";
 import CTASection from "./CTASection";
 import UseCasesSection from "./UseCasesSection";

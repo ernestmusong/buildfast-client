@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductFeature } from "@/types/product";
+import { ProductFeature } from "@/types/products/product";
 
 import {
   Card,
