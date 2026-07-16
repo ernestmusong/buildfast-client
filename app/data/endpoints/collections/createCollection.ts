@@ -31,6 +31,9 @@ export const createCollectionEndpoint: Endpoint =
 
   headers: [
     {
+      id: "xxxxx",
+      type: "string",
+      location: "header",
       name: "Authorization",
       required: true,
       example: "Bearer sk_test_xxx",
@@ -39,6 +42,9 @@ export const createCollectionEndpoint: Endpoint =
     },
 
     {
+      id: "xxxxx1",
+      type: "string",
+      location: "header",
       name: "Content-Type",
       required: true,
       example:
@@ -48,6 +54,9 @@ export const createCollectionEndpoint: Endpoint =
     },
 
     {
+       id: "xxxxx2",
+      type: "string",
+      location: "header",
       name: "X-App-ID",
       required: true,
       example: "app_12345",
@@ -56,8 +65,10 @@ export const createCollectionEndpoint: Endpoint =
     },
   ],
 
-  parameters: [
+  fields: [
     {
+       id: "xxxxx1",
+      location: "query",
       name: "amount",
       type: "number",
       required: true,
@@ -76,6 +87,8 @@ export const createCollectionEndpoint: Endpoint =
     },
 
     {
+       id: "xxxxx1",
+      location: "query",
       name: "currency",
       type: "string",
       required: true,
@@ -95,6 +108,8 @@ export const createCollectionEndpoint: Endpoint =
     },
 
     {
+       id: "xxxxx1",
+      location: "query",
       name: "phone",
       type: "string",
       required: true,

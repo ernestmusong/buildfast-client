@@ -29,25 +29,25 @@ export default function FieldInspector({
     <FieldCard>
 
       <Stack
-        direction="row"
         sx={{
             justifyContent:"space-between",
         alignItems:"center"
         }}
       >
         <Typography
-          variant="h5"
+          variant="h6"
           sx={{
             fontWeight:700,
-          fontFamily:"monospace"
+            fontFamily:"monospace",
           }}
         >
           {field.name}
         </Typography>
-
+          
         <RequiredChip
           required={field.required}
         />
+
       </Stack>
 
       <FieldRow label="Type">

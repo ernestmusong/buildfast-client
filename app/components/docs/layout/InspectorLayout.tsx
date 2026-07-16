@@ -2,43 +2,37 @@
 
 import { ReactNode } from "react";
 
-import { Grid, Box } from "@mui/material";
+// import { Grid, Box, Drawer, useMediaQuery, useTheme } from "@mui/material";
+import { Grid, Box, Dialog, DialogContent, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface InspectorLayoutProps {
   children: ReactNode;
-  inspector: ReactNode;
+  inspector?: ReactNode;
 
-  /**
-   * Width of the main content column.
-   * Defaults to 8/12.
-   */
   contentWidth?: number;
 
-  /**
-   * Width of the inspector column.
-   * Defaults to 4/12.
-   */
   inspectorWidth?: number;
 
-  /**
-   * Gap between columns.
-   */
   spacing?: number;
 
-  /**
-   * Optional margin top.
-   */
   mt?: number;
-}
+ isInspectorOpen?: boolean; 
+  onInspectorClose?: () => void;
+   isModalOpen: boolean;          // Controls Dialog visibility
+  onModalClose?: () => void;
+ }
 
 export default function InspectorLayout({
-  children,
+ children,
   inspector,
-  contentWidth = 8,
-  inspectorWidth = 4,
+  contentWidth = 100,
   spacing = 3,
   mt = 0,
+   isModalOpen,
+  onModalClose,
 }: InspectorLayoutProps) {
+   
   return (
     <Box
     sx={{
@@ -57,27 +51,31 @@ export default function InspectorLayout({
           {children}
         </Grid>
 
-        {/* Inspector */}
-
-        <Grid
-          size={{
-            xs: 12,
-            lg: inspectorWidth,
-          }}
+        <Dialog
+          open={isModalOpen}
+          onClose={onModalClose}
+          maxWidth="sm"
+          fullWidth
+          aria-labelledby="inspector-dialog-title"
         >
-          <Box
+          {/* Close button in top-right corner */}
+          <IconButton
+            aria-label="close"
+            onClick={onModalClose}
             sx={{
-              position: {
-                xs: "static",
-                lg: "sticky",
-              },
-
-              top: 24,
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
             }}
           >
+            <CloseIcon />
+          </IconButton>
+
+          <DialogContent sx={{ mt: 3 }}>
             {inspector}
-          </Box>
-        </Grid>
+          </DialogContent>
+        </Dialog>
       </Grid>
     </Box>
   );

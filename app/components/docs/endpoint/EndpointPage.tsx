@@ -31,8 +31,11 @@ export default function EndpointPage({
   endpoint,
 }: Props) {
 
-    const [selectedField, setSelectedField] =
-    useState<FieldDefinition | null>(null);
+    const [selectedField, setSelectedField] = useState<FieldDefinition | null>(null);
+    const [isInspectorOpen, setIsInspectorOpen] = useState(false);
+    const [activeFieldId, setActiveFieldId] = useState<string | null>(null);
+
+
 
   return (
     <>
@@ -68,7 +71,11 @@ export default function EndpointPage({
       />
 
       <InspectorLayout
-    inspector={
+        isModalOpen={Boolean(selectedField?.id)} // Opens if an ID is set (not null)
+      onModalClose={() => setSelectedField(null)}
+      
+
+       inspector={
         <FieldInspector
             field={selectedField}
         />
@@ -82,6 +89,8 @@ export default function EndpointPage({
         />
 </InspectorLayout>
       <InspectorLayout
+       isModalOpen={Boolean(selectedField?.id)}
+      onModalClose={() => setSelectedField(null)}
     inspector={
         <FieldInspector
             field={selectedField}
@@ -98,35 +107,17 @@ export default function EndpointPage({
 
 </InspectorLayout>
 
-      <InspectorLayout
-    inspector={
-        <FieldInspector
-            field={selectedField}
-        />
-    }
->
-    <RequestVisualizer
+       <RequestVisualizer
       fields={endpoint.fields}
       body={endpoint.requestBody}
       onFieldSelect={setSelectedField}
     />
 
-</InspectorLayout>
-
- <InspectorLayout
-    inspector={
-        <FieldInspector
-            field={selectedField}
-        />
-    }
->
-    <ResponseVisualizer
+  <ResponseVisualizer
             fields={endpoint.fields}
             response={endpoint.successResponse.body}
             onFieldSelect={setSelectedField}
         />
-
-</InspectorLayout>
       
 
       <FlowDiagram
