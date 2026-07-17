@@ -1,4 +1,3 @@
-import { Parameter } from "./Parameter";
 import { FieldDefinition } from "./Field";
 import { ApiResponse } from "./Response";
 import { CodeExamples } from "./CodeExample";
@@ -30,7 +29,7 @@ export interface Endpoint {
 
   headers: FieldDefinition[];
 
-  fields: FieldDefinition[]
+  parameters: FieldDefinition[];
 
   requestBody: Record<string, any>;
 

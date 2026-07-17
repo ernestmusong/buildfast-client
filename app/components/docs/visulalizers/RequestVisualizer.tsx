@@ -16,24 +16,13 @@ import JsonViewToggle from "./JsonViewToggle";
 import { FieldDefinition } from "@/types/endpoint/Field";
 
 interface Props {
-  fields: FieldDefinition[];
 
   body: Record<string, unknown>;
-
-  onFieldSelect?: (
-    field: FieldDefinition
-  ) => void;
 }
 
 export default function RequestVisualizer({
-  fields,
   body,
-  onFieldSelect,
 }: Props) {
-  const [view, setView] =
-    useState<"schema" | "json">(
-      "schema"
-    );
 
   const json = JSON.stringify(
     body,
@@ -62,22 +51,9 @@ export default function RequestVisualizer({
           json={json}
         />
 
-        <JsonViewToggle
-          value={view}
-          onChange={setView}
-        />
       </Box>
 
-      {view === "schema" ? (
-        <JsonTree
-          fields={fields}
-          onSelect={
-            onFieldSelect
-          }
-        />
-      ) : (
-     <CodeBlock language="json" code={json} />
-      )}
+        <CodeBlock language="json" code={json} />
     </Paper>
   );
 }

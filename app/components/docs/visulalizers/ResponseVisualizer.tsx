@@ -12,26 +12,17 @@ import JsonTree from "./JsonTree";
 import JsonViewToggle from "./JsonViewToggle";
 
 interface ResponseVisualizerProps {
-  fields: FieldDefinition[];
 
   response: Record<string, unknown>;
-
-  onFieldSelect?: (
-    field: FieldDefinition
-  ) => void;
 
   title?: string;
 }
 
 export default function ResponseVisualizer({
-  fields,
   response,
-  onFieldSelect,
   title = "Response Body",
 }: ResponseVisualizerProps) {
-  const [view, setView] = useState<
-    "schema" | "json"
-  >("schema");
+  
 
   const json = JSON.stringify(
     response,
@@ -60,23 +51,13 @@ export default function ResponseVisualizer({
           json={json}
         />
 
-        <JsonViewToggle
-          value={view}
-          onChange={setView}
-        />
+        
       </Box>
-
-      {view === "schema" ? (
-        <JsonTree
-          fields={fields}
-          onSelect={onFieldSelect}
-        />
-      ) : (
-        <CodeBlock
+<CodeBlock
           language="json"
           code={json}
         />
-      )}
+      
     </Paper>
   );
 }

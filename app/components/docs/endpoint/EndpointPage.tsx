@@ -100,7 +100,7 @@ export default function EndpointPage({
     <FieldsTable
       title="Request Parameters"
       description="Parameters accepted by this endpoint."
-      fields={endpoint.fields}
+      fields={endpoint.parameters}
       selectedField={selectedField}
       onFieldSelect={setSelectedField}
     />
@@ -108,15 +108,11 @@ export default function EndpointPage({
 </InspectorLayout>
 
        <RequestVisualizer
-      fields={endpoint.fields}
       body={endpoint.requestBody}
-      onFieldSelect={setSelectedField}
     />
 
   <ResponseVisualizer
-            fields={endpoint.fields}
             response={endpoint.successResponse.body}
-            onFieldSelect={setSelectedField}
         />
       
 

@@ -65,9 +65,9 @@ export const createCollectionEndpoint: Endpoint =
     },
   ],
 
-  fields: [
+  parameters: [
     {
-       id: "xxxxx1",
+       id: "xxxxx3",
       location: "query",
       name: "amount",
       type: "number",
@@ -87,7 +87,7 @@ export const createCollectionEndpoint: Endpoint =
     },
 
     {
-       id: "xxxxx1",
+       id: "xxxxx4",
       location: "query",
       name: "currency",
       type: "string",
@@ -108,7 +108,7 @@ export const createCollectionEndpoint: Endpoint =
     },
 
     {
-       id: "xxxxx1",
+       id: "xxxxx5",
       location: "query",
       name: "phone",
       type: "string",

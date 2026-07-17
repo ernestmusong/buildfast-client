@@ -1,39 +1,76 @@
-export const docsNavigation = [
+export const navigation = [
   {
     label: "Introduction",
-    href: "/docs/introduction"
+    href: "/docs/introduction",
   },
-
   {
     label: "Authentication",
-    href: "/docs/authentication"
+    href: "/docs/authentication",
   },
-
+  {
+    label: "Environments",
+    href: "/docs/environments",
+  },
+  {
+    label: "API Keys",
+    href: "/docs/api-keys",
+  },
   {
     label: "Collections",
     children: [
       {
         label: "Create Collection",
-        href: "/docs/collections/create"
+        href: "/docs/collections/create",
       },
       {
         label: "Get Collection",
-        href: "/docs/collections/get"
+        href: "/docs/collections/get",
       },
       {
         label: "List Collections",
-        href: "/docs/collections/list"
-      }
-    ]
+        href: "/docs/collections/list",
+      },
+    ],
   },
-
   {
     label: "Payouts",
     children: [
       {
         label: "Create Payout",
-        href: "/docs/payouts/create"
-      }
-    ]
-  }
+        href: "/docs/payouts/create",
+      },
+      {
+        label: "Get Payout",
+        href: "/docs/payouts/get",
+      },
+      {
+        label: "List Payouts",
+        href: "/docs/payouts/list",
+      },
+    ],
+  },
+  {
+    label: "Payment Links",
+    href: "/docs/payment-links",
+  },
+  {
+    label: "Checkout",
+    href: "/docs/checkout",
+  },
+  {
+    label: "Webhooks",
+    href: "/docs/webhooks",
+  },
+  {
+    label: "SDKs",
+    href: "/docs/sdks",
+  },
+  {
+    label: "Errors",
+    href: "/docs/errors",
+  },
+  {
+    label: "Changelog",
+    href: "/docs/changelog",
+  },
 ];

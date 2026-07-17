@@ -35,8 +35,8 @@ const languages = [
 export default function CodeTabs({
   snippets,
 }: Props) {
-  const [tab, setTab] =
-    useState("typescript");
+  
+  const [tab, setTab] = useState("typescript");
 
   return (
     <Box>
