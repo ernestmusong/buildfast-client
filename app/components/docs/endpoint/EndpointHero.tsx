@@ -6,9 +6,13 @@ import {
 } from "@mui/material";
 
 import EndpointMethod from "./EndpointMethod";
+import EndpointBreadcrum from "./EndpointBreadcrum";
+import { BreadCrumbsObject } from "@/types/endpoint/Endpoint";
 
 interface Props {
+  breadCrumbs: BreadCrumbsObject
   title: string;
+  description: string
   method:
     | "GET"
     | "POST"
@@ -22,6 +26,8 @@ export default function EndpointHero({
   title,
   method,
   endpoint,
+  description,
+  breadCrumbs
 }: Props) {
   return (
     <Stack spacing={2}
@@ -29,6 +35,7 @@ export default function EndpointHero({
         mb:6
     }}
     >
+      <EndpointBreadcrum breadCrumbsList={breadCrumbs.breadCrumbsList}/>
       <Typography
         variant="h3"
       >
@@ -52,6 +59,14 @@ export default function EndpointHero({
           {endpoint}
         </Typography>
       </Stack>
+      <Typography
+        variant="body1"
+        sx={{
+            lineHeight:1.8
+        }}
+      >
+        {description}
+      </Typography>
     </Stack>
   );
 }

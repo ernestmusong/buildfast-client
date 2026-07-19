@@ -22,6 +22,16 @@ export const createCollectionEndpoint: Endpoint =
   rateLimit:
     "100 requests/minute",
 
+
+      breadCrumbs: {
+        breadCrumbsList:{
+           href1: "/documentation",
+    text1: "collections",
+    text2: "create",
+        }
+  
+   },
+
   sdkSupport: [
     "TypeScript",
     "Python",

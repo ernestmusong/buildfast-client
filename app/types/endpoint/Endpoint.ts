@@ -3,6 +3,14 @@ import { ApiResponse } from "./Response";
 import { CodeExamples } from "./CodeExample";
 import { FlowStep } from "./Flow";
 
+    export interface BreadCrumbsObject  {
+      breadCrumbsList: {
+         href1: string
+      text1: string
+      text2: string
+      }
+    }
+
 export interface Endpoint {
   id: string;
 
@@ -40,4 +48,5 @@ export interface Endpoint {
   flow: FlowStep[];
 
   codeExamples: CodeExamples;
+  breadCrumbs: BreadCrumbsObject
 }

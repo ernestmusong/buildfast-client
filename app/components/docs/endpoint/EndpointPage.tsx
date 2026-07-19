@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { FieldDefinition } from "@/types/endpoint/Field";
 import EndpointHero from "./EndpointHero";
-import EndpointDescription from "./EndpointDescription";
 import EndpointMetadata from "./EndpointMetadata";
 import FieldInspector from "../inspector/FieldInspector";
 import InspectorLayout from "../layout/InspectorLayout";
@@ -32,23 +31,17 @@ export default function EndpointPage({
 }: Props) {
 
     const [selectedField, setSelectedField] = useState<FieldDefinition | null>(null);
-    const [isInspectorOpen, setIsInspectorOpen] = useState(false);
-    const [activeFieldId, setActiveFieldId] = useState<string | null>(null);
-
-
-
+     
   return (
     <>
       <EndpointHero
+      breadCrumbs={endpoint.breadCrumbs}
         title={endpoint.title}
         method={endpoint.method}
         endpoint={
           endpoint.endpoint
         }
-      />
-
-      <EndpointDescription
-        description={
+         description={
           endpoint.description
         }
       />

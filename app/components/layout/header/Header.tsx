@@ -36,7 +36,7 @@ const NAV_ITEMS = [
   {
     label: "Developers",
     children: [
-      { label: "Documentation", href: "/documentation" },
+      { label: "Documentation", href: "/docs" },
       { label: "API Reference", href: "/api-reference" },
       { label: "Sandbox", href: "/sandbox" },
       { label: "API Status", href: "/status" },
