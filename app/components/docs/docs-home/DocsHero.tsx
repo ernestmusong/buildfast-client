@@ -102,31 +102,35 @@ export default function DocsHero() {
             spacing={2}
           >
             <Button
-              component={Link}
-              href="/docs/introduction"
               variant="contained"
               size="large"
               startIcon={<MenuBookRoundedIcon />}
               sx={{
-                px: 4,
-                py: 1.5,
+                backgroundColor:"#FDCC00",
+                color:"#000000",
+                border:"none",
+                boxShadow:"none",
+                "&:hover": {
+            
+            boxShadow: "none"
+          },
               }}
             >
-              Get Started
+              Mobile Money
             </Button>
 
             <Button
-              component={Link}
-              href="/docs/collections/create"
               variant="outlined"
               size="large"
               startIcon={<ApiRoundedIcon />}
               sx={{
-                px: 4,
-                py: 1.5,
+                backgroundColor:"#FF7900",
+                color:"#ffffff",
+                 border:"none",
+                boxShadow:"none"
               }}
             >
-              Explore APIs
+              Orange Money
             </Button>
           </Stack>
 
