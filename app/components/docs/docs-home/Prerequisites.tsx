@@ -83,13 +83,8 @@ export default function Prerequisites() {
             </Typography>
 
             <Typography
-              variant="h6"
-              color="text.secondary"
-              sx={{
-                maxWidth: 760,
-                fontWeight: 400,
-                lineHeight: 1.8,
-              }}
+              variant="subtitle1"
+            color="text.secondary"
             >
               Before making your first API request, ensure your
               BuildFast account and development environment are

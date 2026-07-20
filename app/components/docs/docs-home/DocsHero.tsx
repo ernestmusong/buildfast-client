@@ -83,13 +83,8 @@ export default function DocsHero() {
           {/* Description */}
 
           <Typography
-            variant="h6"
+           variant="subtitle1"
             color="text.secondary"
-            sx={{
-              maxWidth: 760,
-              lineHeight: 1.8,
-              fontWeight: 400,
-            }}
           >
             Integrate MTN Mobile Money and Orange Money
             collections, payouts, payment links and bulk
