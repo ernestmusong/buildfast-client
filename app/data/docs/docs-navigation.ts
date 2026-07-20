@@ -1,15 +1,7 @@
 export const navigation = [
   {
-    label: "Introduction",
-    href: "/docs/introduction",
-  },
-  {
     label: "Authentication",
     href: "/docs/authentication",
-  },
-  {
-    label: "Environments",
-    href: "/docs/environments",
   },
   {
     label: "API Keys",

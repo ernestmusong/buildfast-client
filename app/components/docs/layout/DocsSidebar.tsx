@@ -76,7 +76,7 @@ export default function DocsSidebar() {
     <Box
       sx={{
         position: "sticky",
-        top: 0,
+        top: {lg: 0},
         height: "100vh",
         overflowY: "auto",
         borderRight: 1,

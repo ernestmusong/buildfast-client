@@ -1,12 +1,22 @@
 "use client";
 
-import {
-  Drawer,
-  IconButton,
-} from "@mui/material";
+import { useState } from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+  Container,
+} from "@mui/material";
 
 import DocsSidebar from "./DocsSidebar";
 
@@ -15,11 +25,27 @@ export default function MobileDocsDrawer() {
 
   return (
     <>
-      <IconButton
+      <Container maxWidth="sm"
+      sx={{
+         display:{
+            lg:"none",
+           }
+      }}
+      >
+           <IconButton
+         color="default"
+          aria-label="open drawer"
+          edge="start"
         onClick={() => setOpen(true)}
+        sx={{
+           color: "text.primary",
+         }}
       >
         <MenuIcon />
       </IconButton>
+          
+        </Container>
+      
 
       <Drawer
         anchor="left"

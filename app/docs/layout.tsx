@@ -12,6 +12,7 @@ export default function DocsLayout({
   children,
 }: Props) {
   return (
+    <>
     <Grid container>
       {/* Sidebar */}
 
@@ -57,5 +58,6 @@ export default function DocsLayout({
         <DocsPlayground />
       </Grid>
     </Grid>
+    </>
   );
 }

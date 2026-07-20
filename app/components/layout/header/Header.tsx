@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import {
@@ -21,6 +22,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import DocsSidebar from "@/components/docs/layout/DocsSidebar";
 
 // Navigation Data Configuration
 const NAV_ITEMS = [
@@ -66,6 +68,9 @@ const NAV_ITEMS = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+const isDocs = pathname.startsWith("/docs");
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
@@ -275,7 +280,8 @@ export default function Header() {
           </IconButton>
         </Box>
 
-        <Box component="nav">
+        {isDocs ? <DocsSidebar/> : (
+               <Box component="nav">
           {NAV_ITEMS.map((item) => (
             <Box key={item.label} sx={{ mb: 3 }}>
               <Typography
@@ -378,6 +384,7 @@ export default function Header() {
       </Button>
           </List>
         </Box>
+        )}
       </Drawer>
     </>
   );
