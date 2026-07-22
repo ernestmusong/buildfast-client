@@ -23,7 +23,7 @@ const apis = [
     description:
       "Accept MTN Mobile Money and Orange Money payments directly from your customers using secure collection endpoints.",
 
-    href: "/docs/collections",
+    href: "/docs/collections/create",
 
     icon: <PaymentsRoundedIcon fontSize="medium" />,
 
@@ -45,7 +45,7 @@ const apis = [
     description:
       "Transfer funds securely to customer mobile wallets with support for status tracking and retries.",
 
-    href: "/docs/payouts",
+    href: "/docs/payouts/create",
 
     icon: (
       <AccountBalanceWalletRoundedIcon fontSize="medium" />
@@ -69,7 +69,7 @@ const apis = [
     description:
       "Generate secure hosted payment pages that customers can pay without integrating a checkout flow.",
 
-    href: "/docs/payment-links",
+    href: "/docs/payment-links/create",
 
     icon: <LinkRoundedIcon fontSize="medium" />,
 
@@ -91,7 +91,7 @@ const apis = [
     description:
       "Send thousands of payouts in a single batch using bulk upload or the Mass Payouts API.",
 
-    href: "/docs/mass-payouts",
+    href: "/docs/mass-payouts/create",
 
     icon: <GroupsRoundedIcon fontSize="medium" />,
 

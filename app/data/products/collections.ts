@@ -7,7 +7,7 @@ export const collectionsData: ProductData = {
     "MTN Mobile Money API Cameroon | Orange Money API Cameroon",
 
   seoDescription:
-    "Collect Mobile Money payments using MTN Mobile Money and Orange Money APIs.",
+    "Collect payments using MTN Mobile Money and Orange Money APIs.",
 
   keywords: [
     "MTN Mobile Money API Cameroon",

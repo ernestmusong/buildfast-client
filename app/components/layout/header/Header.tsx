@@ -240,7 +240,7 @@ const isDocs = pathname.startsWith("/docs");
                   "&:hover": { boxShadow: "none" },
                 }}
               >
-                Get API Key
+                Register
               </Button>
               <IconButton color="default" size="small">
                 <DarkModeIcon fontSize="small" />
@@ -380,7 +380,7 @@ const isDocs = pathname.startsWith("/docs");
           },
         }}
       >
-        Get API Key
+        Register
       </Button>
           </List>
         </Box>

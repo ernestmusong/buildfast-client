@@ -122,9 +122,9 @@ export default function DocsSidebar() {
             return (
               <Box key={item.label}>
                 <ListItemButton
-                  onClick={() =>
+                  onClick={() => {
                     toggleGroup(item.label)
-                  }
+                  }}
                 >
                   <ListItemText
                     primary={item.label}
