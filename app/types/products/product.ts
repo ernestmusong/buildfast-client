@@ -1,6 +1,7 @@
 export interface ProductFeature {
   title: string;
   description: string;
+  icon:any
 }
 
 export interface ProductApiExample {

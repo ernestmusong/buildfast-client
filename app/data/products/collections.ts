@@ -1,4 +1,10 @@
 import { ProductData } from "@/types/products/product";
+import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
+import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 
 export const collectionsData: ProductData = {
   slug: "collections",
@@ -7,7 +13,7 @@ export const collectionsData: ProductData = {
     "MTN Mobile Money API Cameroon | Orange Money API Cameroon",
 
   seoDescription:
-    "Collect payments using MTN Mobile Money and Orange Money APIs.",
+    "Collect payments in Cameroon using MTN Mobile Money and Orange Money APIs.",
 
   keywords: [
     "MTN Mobile Money API Cameroon",
@@ -28,21 +34,25 @@ export const collectionsData: ProductData = {
       title: "Instant Collections",
       description:
         "Receive customer payments instantly.",
+        icon: PaymentsOutlinedIcon
     },
     {
       title: "Webhooks",
       description:
         "Get notified when payments succeed.",
+        icon: NotificationsNoneOutlinedIcon
     },
     {
       title: "Verification",
       description:
         "Verify every transaction securely.",
+        icon: PaymentsOutlinedIcon,
     },
     {
       title: "Single Integration",
       description:
         "One API for MTN and Orange.",
+        icon: PaymentsOutlinedIcon
     },
   ],
 
