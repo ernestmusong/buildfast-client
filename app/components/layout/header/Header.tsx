@@ -228,7 +228,7 @@ const isDocs = pathname.startsWith("/docs");
               </Button>
               <Button
                 component={Link}
-                href="/register"
+                href="/auth/sign-up"
                 variant="contained"
                 color="primary"
                 sx={{
