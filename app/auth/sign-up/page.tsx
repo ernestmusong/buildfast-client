@@ -10,14 +10,14 @@ export default function Page() {
       <AuthHeader
         name="Sign up BuildFast"
         subtitle="Start accepting MTN Mobile Money and Orange Money payments in minutes."
-//         logo={
-//     <Image
-//       src="/images/buildfast-logo.svg"
-//       alt="BuildFast"
-//       width={160}
-//       height={40}
-//     />
-//   }
+        logo={
+    <Image
+      src="/fav.png"
+      alt="BuildFast"
+      width={64}
+      height={64}
+    />
+  }
       />
 
       <SignupForm />

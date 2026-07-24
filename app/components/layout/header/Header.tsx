@@ -54,13 +54,11 @@ const NAV_ITEMS = [
       { label: "Responsible Disclosure", href: "/trust/disclosure" },
     ],
   },
-  { label: "Pricing", href: "/pricing" },
+  // { label: "Pricing", href: "/pricing" },
   {
     label: "Company",
     children: [
       { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -141,21 +139,22 @@ const isDocs = pathname.startsWith("/docs");
                     >
                       {item.label}
                     </Button>
-                  ) : (
-                    <Typography
-                      component={Link}
-                      href={item.href || "#"}
-                      sx={{
-                        color: "text.secondary",
-                        fontWeight: 500,
-                        textDecoration: "none",
-                        fontSize: "1rem",
-                        "&:hover": { color: "primary.main" },
-                      }}
-                    >
-                      {item.label}
-                    </Typography>
-                  )}
+                   ) : ''
+                  //   (<Typography
+                  //     component={Link}
+                  //     href={item.href || "#"}
+                  //     sx={{
+                  //       color: "text.secondary",
+                  //       fontWeight: 500,
+                  //       textDecoration: "none",
+                  //       fontSize: "1rem",
+                  //       "&:hover": { color: "primary.main" },
+                  //     }}
+                  //   >
+                  //     {item.label}
+                  //   </Typography>
+                  // )
+                  }
 
                   {/* Dropdown Menu Overlay */}
                   {item.children && (
@@ -296,7 +295,7 @@ const isDocs = pathname.startsWith("/docs");
               >
                 {item.label}
               </Typography>
-              {item.children ? (
+              {item.children && (
                 <List disablePadding>
                   {item.children.map((child) => (
                     <ListItem key={child.label} disableGutters sx={{ py: 0.5 }}>
@@ -316,20 +315,6 @@ const isDocs = pathname.startsWith("/docs");
                     </ListItem>
                   ))}
                 </List>
-              ) : (
-                <Typography
-                  component={Link}
-                  href={item.href || "#"}
-                  onClick={handleDrawerToggle}
-                  sx={{
-                    textDecoration: "none",
-                    color: "text.primary",
-                    display: "block",
-                    "&:hover": { color: "primary.main" },
-                  }}
-                >
-                  {item.label}
-                </Typography>
               )}
             </Box>
           ))}

@@ -9,14 +9,14 @@ export default function Page() {
     <AuthCard>
       <AuthHeader
         name={'Login to BuildFast'}
-//         logo={
-//     <Image
-//       src="/images/buildfast-logo.svg"
-//       alt="BuildFast"
-//       width={160}
-//       height={40}
-//     />
-//   }
+        logo={
+    <Image
+      src="/fav.png"
+      alt="BuildFast"
+      width={64}
+      height={64}
+    />
+  }
       />
 
       <LoginForm />
