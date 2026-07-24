@@ -1,4 +1,6 @@
 import { ProductData } from "@/types/products/product";
+import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 
 export const payoutsData: ProductData = {
   slug: "payouts",
@@ -28,12 +30,32 @@ export const payoutsData: ProductData = {
       title: "Bulk Transfers",
       description:
         "Send thousands of payouts.",
+        icon: PaymentsOutlinedIcon
     },
     {
       title: "Instant Disbursements",
       description:
         "Deliver funds instantly.",
+        icon: PaymentsOutlinedIcon
     },
+    {
+      title: "Webhooks",
+      description:
+        "Get notified when payments succeed.",
+        icon: NotificationsNoneOutlinedIcon
+    },
+    {
+          title: "Verification",
+          description:
+            "Verify every transaction securely.",
+            icon: PaymentsOutlinedIcon,
+        },
+        {
+          title: "Single Integration",
+          description:
+            "One API for MTN and Orange.",
+            icon: PaymentsOutlinedIcon
+        },
   ],
 
   flowSteps: [

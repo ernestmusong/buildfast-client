@@ -12,26 +12,28 @@ import {
 import BoltRoundedIcon from "@mui/icons-material/BoltRounded";
 
 interface AuthHeaderProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   logo?: React.ReactNode;
   logoHref?: string;
+  name?: string
 }
 
 export default function AuthHeader({
   title,
   subtitle,
   logoHref = "/",
-  logo
+  logo,
+  name
 }: AuthHeaderProps) {
   return (
     <Box
     sx={{
-        mb: 5
+        mb: 3
     }}
     >
       <Stack
-        spacing={3}
+        spacing={2}
         // alignItems="center"
         // textAlign="center"
       >
@@ -69,7 +71,7 @@ export default function AuthHeader({
              fontWeight: 800
          }}
         >
-          BuildFast
+          {name}
         </Typography>
 
         {/* Heading */}

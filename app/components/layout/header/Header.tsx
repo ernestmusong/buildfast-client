@@ -217,7 +217,7 @@ const isDocs = pathname.startsWith("/docs");
             >
               <Button
                 component={Link}
-                href="/login"
+                href="/auth/login"
                 sx={{
                   color: "text.primary",
                   fontWeight: 600,

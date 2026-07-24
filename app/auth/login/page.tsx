@@ -1,6 +1,6 @@
 import AuthCard from "@/components/auth/AuthCard";
 import AuthHeader from "@/components/auth/AuthHeader";
-import SignupForm from "@/components/auth/SignupForm";
+import LoginForm from "@/components/auth/LoginForm";
 import AuthFooter from "@/components/auth/AuthFooter";
 import Image from "next/image";
 
@@ -8,8 +8,7 @@ export default function Page() {
   return (
     <AuthCard>
       <AuthHeader
-        name="Sign up BuildFast"
-        subtitle="Start accepting MTN Mobile Money and Orange Money payments in minutes."
+        name={'Login to BuildFast'}
 //         logo={
 //     <Image
 //       src="/images/buildfast-logo.svg"
@@ -20,12 +19,12 @@ export default function Page() {
 //   }
       />
 
-      <SignupForm />
+      <LoginForm />
 
       <AuthFooter
-        question="Already have an account?"
-        actionLabel="Sign in"
-        href="/auth/login"
+        question="Don't have an account?"
+        actionLabel="Sign up"
+        href="/auth/sign-up"
       />
     </AuthCard>
   );
