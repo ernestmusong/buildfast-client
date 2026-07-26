@@ -1,11 +1,12 @@
+import { ReactNode } from "react";
+import { ClientProviders } from "@/providers/providers";
+
+import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
+
+
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import { Roboto } from 'next/font/google';
-import './globals.css'; // Your global styles
-
-import { ClientProviders } from "./providers/providers"; // Import the wrapper
-import Header from "./components/layout/header/Header";
-import Footer from "./components/layout/footer/Footer";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -25,15 +26,24 @@ const roboto = Roboto({
 // });
 
 export const metadata: Metadata = {
-  title: "BuildFast",
-  description: "Mobile money and Orange Money payment Aggregator in Cameroon",
+  title: "Dashboad",
 };
 
-export default function RootLayout({
+
+interface DashboardLayoutProps {
+  children: ReactNode;
+}
+
+ 
+
+
+
+
+
+
+export default function Layout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: DashboardLayoutProps) {
   return (
     <html
       lang="en"
@@ -41,9 +51,9 @@ export default function RootLayout({
     >
       <body style={{ fontFamily: 'var(--font-roboto), sans-serif' }}>
         <ClientProviders>
-          <Header />
+         <DashboardLayout>
           {children}
-          <Footer />
+      </DashboardLayout>
         </ClientProviders>
       </body>
     </html>

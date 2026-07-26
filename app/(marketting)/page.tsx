@@ -1,6 +1,6 @@
-import Hero from "./components/home/hero/Hero";
-import Developer from "./components/home/developer/Developer";
-import Security from "./components/home/security/Security";
+import Hero from "@/components/home/hero/Hero";
+import Developer from "@/components/home/developer/Developer";
+import Security from "@/components/home/security/Security";
 import { Box } from "@mui/material";
 
 export default function Home() {
