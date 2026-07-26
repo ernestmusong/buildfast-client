@@ -1,13 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import {
-  Box,
-  Toolbar,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-
+import { Box, Toolbar } from "@mui/material";
 import DashboardHeader from "./DashboardHeader";
 import DashboardSidebar from "./DashboardSidebar";
 import DashboardDrawer from "./DashboardDrawer";
@@ -18,17 +12,8 @@ interface DashboardLayoutProps {
 
 const DRAWER_WIDTH = 280;
 
-export default function DashboardLayout({
-  children,
-}: DashboardLayoutProps) {
-  const theme = useTheme();
-
-  const isDesktop = useMediaQuery(
-    theme.breakpoints.up("lg")
-  );
-
-  const [mobileOpen, setMobileOpen] =
-    useState(false);
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
@@ -37,19 +22,22 @@ export default function DashboardLayout({
   return (
     <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "background.default" }}>
       
-      {/* 1. Desktop Sidebar (Controlled strictly via pure CSS display tokens) */}
-      <Box component="nav" sx={{ width: { lg: DRAWER_WIDTH }, flexShrink: { lg: 0 }, display: { xs: "none", lg: "block" } }}>
+      {/* 1. Global Navigation Top Bar Component */}
+      <DashboardHeader onMenuClick={handleDrawerToggle} />
+
+      {/* 2. Permanent Desktop Sidebar (Strictly hidden on smaller breakpoints via CSS display engine) */}
+      <Box sx={{ display: { xs: "none", lg: "block" } }}>
         <DashboardSidebar width={DRAWER_WIDTH} />
       </Box>
 
-      {/* 2. Mobile Drawer Popover Sheet */}
+      {/* 3. Mobile Navigation Sheet Dropdown Panel Overlays */}
       <DashboardDrawer
         width={DRAWER_WIDTH}
         open={mobileOpen}
         onClose={handleDrawerToggle}
       />
 
-      {/* 3. Main View Frame Section Container */}
+      {/* 4. Primary Content Base Canvas View Section */}
       <Box
         component="main"
         sx={{
@@ -57,18 +45,15 @@ export default function DashboardLayout({
           display: "flex",
           flexDirection: "column",
           minWidth: 0,
-          // Reserves a fixed spacing margin exclusively on desktop devices to prevent overlapping
-          ml: { lg: `${DRAWER_WIDTH}px` }, 
-          width: { lg: `calc(100% - ${DRAWER_WIDTH}px)` }
+          // Applies the exact offset shift required to balance out the width of the sidebar
+          // pl: { lg: `${DRAWER_WIDTH}px` }, 
+          width: "100%",
         }}
       >
-        {/* Global Toolbar Header Block */}
-        <DashboardHeader onMenuClick={handleDrawerToggle} />
-        
-        {/* Offset Spacing to clear the fixed AppBar position elevation layer */}
+        {/* Generates structural padding offsets underneath the sticky header element */}
         <Toolbar />
         
-        {/* Page Inner Content Port */}
+        {/* Main Operational Child Layout View Engine */}
         <Box sx={{ flex: 1, p: { xs: 2, md: 3, lg: 4 } }}>
           {children}
         </Box>

@@ -69,14 +69,17 @@ export default function Header() {
   const pathname = usePathname();
 
 const isDocs = pathname.startsWith("/docs");
+const isDashboard = pathname.startsWith("/dashboard");
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
   };
 
-  return (
-    <>
-      <AppBar
+  if(!isDashboard) {
+
+    return (
+      <>
+             <AppBar
         position="sticky"
         elevation={0}
         sx={{
@@ -371,6 +374,11 @@ const isDocs = pathname.startsWith("/docs");
         </Box>
         )}
       </Drawer>
-    </>
-  );
+   
+      </>
+    );
+  }
+
+  return;
+
 }

@@ -2,14 +2,17 @@
 
 import * as React from 'react';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import type {} from '@mui/x-charts/themeAugmentation';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 const baseTheme = createTheme();
 
 export const theme = createTheme({
-  // Enables CSS variables support for smooth dark/light mode switches
-  cssVariables: true, 
+  cssVariables: {
+    colorSchemeSelector: 'data', // Injects values cleanly using [data-mui-color-scheme]
+  },
+   
   colorSchemes: {
     light: {
       palette: {
@@ -85,6 +88,40 @@ export const theme = createTheme({
         //   maxWidth: 520,
         // },
   },
+
+  components: {
+    MuiChartsAxis: {
+      styleOverrides: {
+        root: {
+          // Directs axis vectors to read theme dividers and text configurations
+          "& .MuiChartsAxis-line, & .MuiChartsAxis-tick": {
+            stroke: "var(--mui-palette-divider)",
+          },
+          "& .MuiChartsAxis-tickLabel": {
+            fill: "var(--mui-palette-text-secondary)",
+          },
+        },
+      },
+    },
+    MuiChartsLegend: {
+      styleOverrides: {
+        root: {
+          "& .MuiChartsLegend-label": {
+            fill: "var(--mui-palette-text-primary)",
+          },
+        },
+      },
+    },
+    MuiChartsGrid: {
+      styleOverrides: {
+        line: {
+          stroke: "var(--mui-palette-divider)",
+          strokeDasharray: "4 4", // Neat dashed alignment lines layout rule
+        },
+      },
+    },
+  },
+   
 });
 
 export function ClientProviders({ children }: { children: React.ReactNode }) {

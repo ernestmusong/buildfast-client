@@ -41,14 +41,15 @@ export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
     <AppBar
       position="fixed"
       elevation={0}
-      sx={{
-        // Uses native CSS color mixing powered by MUI v9 performance optimization
-        backgroundColor: "background.paper",
-        color: "text.primary",
-        borderBottom: "1px solid",
-        borderColor: "divider",
-        zIndex: (theme) => theme.zIndex.drawer + 1,
-      }}
+     sx={{
+    backgroundColor: "background.paper",
+    color: "text.primary",
+    borderBottom: "1px solid",
+    borderColor: "divider",
+    zIndex: (theme) => theme.zIndex.drawer + 1,
+    // Automatically applies a left spacing offset on desktop breakpoints to align text perfectly
+    pl: { lg: "280px" },
+  }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         

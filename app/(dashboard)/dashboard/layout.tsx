@@ -34,13 +34,6 @@ interface DashboardLayoutProps {
   children: ReactNode;
 }
 
- 
-
-
-
-
-
-
 export default function Layout({
   children,
 }: DashboardLayoutProps) {

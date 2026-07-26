@@ -1,8 +1,14 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import "./Footer.css";
 
 export default function Footer() {
-  return (
+  const pathname = usePathname()
+
+  const isDashboard = pathname.startsWith("/dashboard");
+
+  if(!isDashboard) {
+    return (
     <footer className="footer">
 
       <div className="footer-container">
@@ -162,4 +168,8 @@ export default function Footer() {
 
     </footer>
   );
+  }
+
+  return;
+  
 }

@@ -5,6 +5,7 @@ import { Roboto } from 'next/font/google';
 import { ClientProviders } from "@/providers/providers";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
+import MarkettingLayout from "@/components/layout/MarkettingLayout";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -41,9 +42,9 @@ export default function RootLayout({
     >
       <body style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}>
         <ClientProviders>
-          <Header />
+          <MarkettingLayout>
           {children}
-          <Footer />
+          </MarkettingLayout>
         </ClientProviders>
       </body>
     </html>

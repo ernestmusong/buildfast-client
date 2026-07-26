@@ -1,6 +1,8 @@
 "use client"
 
 import { Typography, Card, CardContent, Button, Box, Stack, Grid } from "@mui/material";
+import RecentTransactions from "@/components/dashboard/RecentTransactions";
+import AnalyticsChart from "@/components/dashboard/AnalyticsChart";
    
 import {
   TrendingUp as RevenueIcon,
@@ -18,6 +20,8 @@ interface DashboardMetrics {
   userGrowth: string;
   orderGrowth: string;
 }
+
+ 
 
 async function getDashboardData(): Promise<DashboardMetrics> {
   // Simulates an enterprise backend server-side fetch latency block
@@ -82,7 +86,7 @@ export default async function DashboardPage() {
       </Stack>
 
       {/* Grid Layout Core Wrapper */}
-      <Grid container spacing={3}>
+      <Grid spacing={3}>
         {STATS_CARDS.map((card) => (
           <Grid key={card.title} size={{ xs: 12, md: 4 }}>
             <Card
@@ -146,17 +150,9 @@ export default async function DashboardPage() {
         ))}
       </Grid>
 
-      {/* Placeholder Workspace Area for Tables/Charts Integration Layer */}
-      <Card elevation={0} sx={{ borderRadius: 3, border: "1px solid", borderColor: "divider", minHeight: 300, display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "background.paper", p: 4 }}>
-        <Stack spacing={1}  sx={{ textAlign: "center", alignItems:"center" }}>
-          <Typography variant="h6" sx={{ fontWeight: 700 }}>
-            Activity Analytics Canvas
-          </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary", maxWidth: 400 }}>
-            Ready to integrate charts or summary metric logs. Connect an internal data table layout module here to monitor live transactions.
-          </Typography>
-        </Stack>
-      </Card>
+       <RecentTransactions />
+       <AnalyticsChart />
+      
     </Stack>
   );
 }
