@@ -7,7 +7,7 @@ import {
 
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 
-import OnboardingCard from "@/components/dashboard/onboarding/OnboardingCard";
+import OnboardingCard from "@/components/onboarding/OnboardingCard";
 
 export default function SubmittedPage() {
   return (

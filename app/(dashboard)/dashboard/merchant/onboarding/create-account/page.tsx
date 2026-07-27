@@ -11,7 +11,7 @@ import {
 
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import OnboardingCard from "@/components/dashboard/onboarding/OnboardingCard";
+import OnboardingCard from "@/components/onboarding/OnboardingCard";
 
 export default function CreateAccountPage() {
   const benefits = [

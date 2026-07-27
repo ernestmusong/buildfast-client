@@ -2,11 +2,11 @@
 
 import { Box, Stack, Typography } from "@mui/material";
 
-import OnboardingCard from "@/components/dashboard/onboarding/OnboardingCard";
+import OnboardingCard from "@/components/onboarding/OnboardingCard";
 import DocumentManager, {
   DocumentItem,
-} from "@/components/dashboard/onboarding/DocumentManager";
-import StepNavigation from "@/components/dashboard/onboarding/StepNavigation";
+} from "@/components/onboarding/DocumentManager";
+import StepNavigation from "@/components/onboarding/StepNavigation";
 
 const documents: DocumentItem[] = [
   {

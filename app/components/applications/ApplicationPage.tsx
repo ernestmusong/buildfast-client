@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 
 import ApplicationList from "./ApplicationList";
 import ApplicationWorkspace from "./ApplicationWorkspace";
+import { Application } from "@/types/application/aplication";
 
 import { applications } from "@/data/applications/mockData";
 
 export default function ApplicationPage() {
-  const [selectedApp, setSelectedApp] =
-    useState(applications[0]);
+  const [selectedApp, setSelectedApp] = useState<Application>(applications[0]);
 
   return (
     <Grid container spacing={3}>
@@ -18,7 +18,7 @@ export default function ApplicationPage() {
         <ApplicationList
           applications={applications}
           selected={selectedApp}
-          onSelect={setSelectedApp}
+          onSelect={() => setSelectedApp(selectedApp)}
         />
       </Grid>
 

@@ -8,7 +8,7 @@ import {
 
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 
-import OnboardingCard from "@/components/dashboard/onboarding/OnboardingCard";
+import OnboardingCard from "@/components/onboarding/OnboardingCard";
 
 export default function VerifyEmailPage() {
   return (

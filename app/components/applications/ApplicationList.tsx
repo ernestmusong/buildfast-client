@@ -2,14 +2,8 @@
 
 import { Card, CardContent, Typography, Button, Stack, Chip, Box } from "@mui/material";
 import { Apps as DefaultAppIcon } from "@mui/icons-material";
-
-// Declared explicit type interfaces replacing 'any' parameters for production safety
-interface Application {
-  id: string;
-  name: string;
-  environment: "Production" | "Staging" | "Development" | string;
-  balance: number;
-}
+import { Application } from "@/types/application/aplication";
+import Link from "next/link";
 
 interface ApplicationListProps {
   applications: Application[];
@@ -51,7 +45,10 @@ export default function ApplicationList({
               key={app.id}
               variant={selected?.id === app.id ? "outlined" : undefined}
               sx={{ cursor: "pointer" }}
-              onClick={() => onSelect(app)}
+              onClick={() => {
+                console.log("selected app", app.id)
+                onSelect(app)
+              }}
             >
               <CardContent>
                 {/* Upper Sub-Flex Row Section wrapping the branding elements */}
@@ -77,7 +74,7 @@ export default function ApplicationList({
                         color: "var(--mui-palette-text-secondary)" 
                       }}
                     >
-                      ID: {app.id}
+                      Created: {app.createdAt}
                     </Typography>
                   </Box>
                   
@@ -92,9 +89,34 @@ export default function ApplicationList({
                 </Stack>
                 
                 {/* Retained currency format mapping synchronously */}
+                <Stack 
+                direction="row"
+                 sx={{
+                  alignItems: "center",
+                  justifyContent: "space-between"
+                 }}
+                
+                 >
+
                 <Typography sx={{ mt: 1 }}>
                   {app.balance.toLocaleString()} XAF
                 </Typography>
+                {app.environment === "sandbox" && (
+                   <Typography
+                   component={Link}
+                   href='/merchant/onboarding'
+                    sx={{
+                  color:"orange",
+                  textDecoration: "none",
+                  textTransform: "capitalize"
+
+                 }}
+                   >
+                    verify
+                </Typography>
+                )}
+               
+                </Stack>
               </CardContent>
             </Card>
           ))}

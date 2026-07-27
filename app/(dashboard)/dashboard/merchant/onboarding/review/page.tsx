@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import ReviewCard from "@/components/dashboard/onboarding/ReviewCard";
+import ReviewCard from "@/components/onboarding/ReviewCard";
 
 export default function ReviewPage() {
   return (

@@ -1,5 +1,3 @@
-// app/merchant/onboarding/welcome/page.tsx
-
 import {
   Box,
   Button,
@@ -10,7 +8,7 @@ import {
 import BoltIcon from "@mui/icons-material/Bolt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import OnboardingCard from "@/components/dashboard/onboarding/OnboardingCard";
+import OnboardingCard from "@/components/onboarding/OnboardingCard";
 
 export default function WelcomePage() {
   return (

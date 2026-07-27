@@ -3,6 +3,10 @@ export interface Application {
   name: string;
   description: string;
   environment: "sandbox" | "production";
+   createdAt: string
+      icon?: any
+      color: any
+       status?: string
 
   balance: number;
   availableBalance: number;

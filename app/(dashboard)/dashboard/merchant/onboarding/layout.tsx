@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import { ClientProviders } from "@/providers/providers";
 
-import OnboardingLayout from "@/components/dashboard/onboarding/OnboardingLayout";
+import OnboardingLayout from "@/components/onboarding/OnboardingLayout";
 
 
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Roboto } from 'next/font/google';
 
 const roboto = Roboto({
@@ -15,10 +15,10 @@ const roboto = Roboto({
   variable: '--font-roboto', // Creates a CSS variable name
 });
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
 // const geistMono = Geist_Mono({
 //   variable: "--font-geist-mono",
@@ -38,9 +38,9 @@ export default function Layout({children}: DashboardLayoutProps) {
   return (
     <html
       lang="en"
-      className={roboto.variable}
+      className={geistSans.variable}
     >
-      <body style={{ fontFamily: 'var(--font-roboto), sans-serif' }}>
+      <body style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}>
         <ClientProviders>
          <OnboardingLayout children={children} />
         </ClientProviders>

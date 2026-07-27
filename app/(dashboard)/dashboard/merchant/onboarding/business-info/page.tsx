@@ -8,7 +8,7 @@ import {
   MenuItem,
 } from "@mui/material";
 
-import OnboardingCard from "@/components/dashboard/onboarding/OnboardingCard";
+import OnboardingCard from "@/components/onboarding/OnboardingCard";
 
 export default function BusinessInfoPage() {
   return (

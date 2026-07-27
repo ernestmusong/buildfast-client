@@ -6,6 +6,10 @@ export const applications: Application[] = [
     name: "BuildFast Store",
     description:
       "Primary e-commerce application used to collect payments from customers.",
+      createdAt: "may 12, 2026",
+      icon: '',
+      color: "success",
+       status: "active",
 
     environment: "production",
 
@@ -69,6 +73,10 @@ export const applications: Application[] = [
 
     description:
       "Point-of-sale application for physical retail stores.",
+       createdAt: "june 12, 2026",
+      icon: '',
+      color: "success",
+       status: "active",
 
     environment: "production",
 
@@ -130,6 +138,9 @@ export const applications: Application[] = [
 
     description:
       "Android and iOS application for customer payments.",
+       createdAt: "april 12, 2026",
+      icon: '',
+      color: "warning",
 
     environment: "sandbox",
 
@@ -186,6 +197,10 @@ export const applications: Application[] = [
 
     description:
       "Collects donations and recurring contributions.",
+       createdAt: "may 12, 2026",
+      icon: '',
+      color: "success",
+       status: "active",
 
     environment: "production",
 

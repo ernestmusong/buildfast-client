@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   Tabs,
+  Chip,
   Tab,
   Box,
   Stack,
@@ -21,10 +22,15 @@ import ApplicationWebhookTab from "./tabs/ApplicationWebhookTab";
 import ApplicationSettingsTab from "./tabs/ApplicationSettingsTab";
 import ApplicationDangerZoneTab from "./tabs/ApplicationDangerZoneTab";
 import { Application } from "@/types/application/aplication";
+import { Apps as DefaultAppIcon } from "@mui/icons-material";
+
+interface ApplicationListProps {
+  application: Application;
+}
 
 export default function ApplicationWorkspace({
   application,
-}: any) {
+}: ApplicationListProps) {
   const [tab, setTab] = useState(0);
 
   return (
@@ -46,16 +52,18 @@ export default function ApplicationWorkspace({
             </Typography>
           </Box>
 
+           
+
           <Stack direction="row" spacing={2}>
-            <Button variant="contained">
+            <Button variant="contained" disableElevation>
               Deposit
             </Button>
 
-            <Button variant="outlined">
+            <Button variant="outlined" disableElevation>
               Withdraw
             </Button>
 
-            <Button variant="outlined">
+            <Button variant="outlined" disableElevation>
               Transfer
             </Button>
           </Stack>
