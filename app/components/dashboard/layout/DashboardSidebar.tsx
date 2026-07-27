@@ -60,18 +60,6 @@ export default function DashboardSidebar({ width }: DashboardSidebarProps) {
 
       <Box sx={{ overflowY: "auto", py: 2, px: 1.5 }}>
         <List disablePadding>
-          <ListItem disablePadding sx={{ px: 2, mb: 1.5 }}>
-            <Typography 
-              variant="caption" 
-              sx={{ 
-                fontWeight: 700, 
-                color: "var(--mui-palette-text-secondary)",
-                letterSpacing: "0.5px"
-              }}
-            >
-              CORE MANAGEMENT
-            </Typography>
-          </ListItem>
 
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.path;

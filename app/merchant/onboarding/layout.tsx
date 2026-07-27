@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import { ClientProviders } from "@/providers/providers";
 
-import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
+import OnboardingLayout from "@/components/dashboard/onboarding/OnboardingLayout";
 
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import { Roboto } from 'next/font/google';
 
 const roboto = Roboto({
@@ -15,10 +15,10 @@ const roboto = Roboto({
   variable: '--font-roboto', // Creates a CSS variable name
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
 // const geistMono = Geist_Mono({
 //   variable: "--font-geist-mono",
@@ -26,7 +26,7 @@ const geistSans = Geist({
 // });
 
 export const metadata: Metadata = {
-  title: "Dashboad",
+  title: "Merchant Onbaording",
 };
 
 
@@ -38,11 +38,11 @@ export default function Layout({children}: DashboardLayoutProps) {
   return (
     <html
       lang="en"
-      className={geistSans.variable}
+      className={roboto.variable}
     >
-      <body style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}>
+      <body style={{ fontFamily: 'var(--font-roboto), sans-serif' }}>
         <ClientProviders>
-         <DashboardLayout children={children} />
+         <OnboardingLayout children={children} />
         </ClientProviders>
       </body>
     </html>

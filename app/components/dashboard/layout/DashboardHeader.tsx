@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, MouseEvent } from "react";
+import Link from "next/link";
 import {
   AppBar,
   Box,
@@ -69,9 +70,17 @@ export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
           
           <Typography
             variant="h6"
+            component={Link}
+            href="/"
             noWrap
-            component="div"
-            sx={{ fontWeight: 700, letterSpacing: "-0.5px" }}
+  
+             sx={{
+                fontSize: "1.8rem",
+                fontWeight: 800,
+                color: "text.primary",
+                textDecoration: "none",
+                flexGrow: { xs: 1, md: 0 },
+              }}
           >
             BuildFast
           </Typography>
