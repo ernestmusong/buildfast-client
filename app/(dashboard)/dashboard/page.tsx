@@ -3,6 +3,7 @@
 import { Typography, Card, CardContent, Button, Box, Stack, Grid } from "@mui/material";
 import RecentTransactions from "@/components/dashboard/RecentTransactions";
 import AnalyticsChart from "@/components/dashboard/AnalyticsChart";
+import TransactionVolumeChart from "@/components/dashboard/charts/TransactionVolumeChart";
    
 import {
   TrendingUp as RevenueIcon,
@@ -23,54 +24,44 @@ interface DashboardMetrics {
 
  
 
-async function getDashboardData(): Promise<DashboardMetrics> {
-  // Simulates an enterprise backend server-side fetch latency block
-  return new Promise((resolve) =>
-    setTimeout(() => {
-      resolve({
-        totalRevenue: "$142,384.50",
-        activeUsers: "12,482",
-        totalOrders: "3,120",
-        revenueGrowth: "+12.4%",
-        userGrowth: "+8.2%",
-        orderGrowth: "+5.1%",
-      });
-    }, 100)
-  );
-}
-
+ 
 export default async function DashboardPage() {
-  const data = await getDashboardData();
 
   const STATS_CARDS = [
     {
       title: "Total Revenue",
-      value: data.totalRevenue,
-      growth: data.revenueGrowth,
+      value: "$142,384.50",
+      growth: "+12.4%",
       icon: <RevenueIcon sx={{ fontSize: 28, color: "primary.main" }} />,
     },
     {
       title: "Active Users",
-      value: data.activeUsers,
-      growth: data.userGrowth,
+      value:  "12,482",
+      growth: "+5.8",
       icon: <UsersIcon sx={{ fontSize: 28, color: "success.main" }} />,
     },
     {
       title: "Total Orders",
-      value: data.totalOrders,
-      growth: data.orderGrowth,
+      value:  "12,482",
+      growth: "+5.8",
       icon: <OrdersIcon sx={{ fontSize: 28, color: "warning.main" }} />,
     },
   ];
 
+
+ 
+
   return (
-    <Stack spacing={4}>
-      {/* Welcome Title Banner Block Section */}
+    <>
+     
+    <Stack spacing={4}
+    >
+       
       <Stack
        direction={{ xs: "column", sm: "row" }}
        sx={{
         justifyContent:"space-between",
-        alignItems:{ xs: "flex-start", sm: "center" }
+        alignItems: "center"
        }}  spacing={2}>
         <Stack spacing={0.5}>
           <Typography variant="h4" component="h1" sx={{ fontWeight: 800, letterSpacing: "-1px" }}>
@@ -85,12 +76,11 @@ export default async function DashboardPage() {
         </Button>
       </Stack>
 
-      {/* Grid Layout Core Wrapper */}
-      <Grid spacing={3}>
+      
+      <Grid container spacing={3} >
         {STATS_CARDS.map((card) => (
           <Grid key={card.title} size={{ xs: 12, md: 4 }}>
             <Card
-              elevation={0}
               sx={{
                 borderRadius: 3,
                 border: "1px solid",
@@ -126,7 +116,7 @@ export default async function DashboardPage() {
                     sx={{
                       p: 1.5,
                       borderRadius: 2,
-                      // Uses fluid color-mix formatting mapping models native to MUI v9 core builds
+                      
                       backgroundColor: "action.hover",
                       display: "flex",
                       alignItems: "center",
@@ -149,10 +139,12 @@ export default async function DashboardPage() {
           </Grid>
         ))}
       </Grid>
+      <TransactionVolumeChart /> 
 
        <RecentTransactions />
-       <AnalyticsChart />
-      
+       <AnalyticsChart /> 
     </Stack>
+    
+    </>
   );
 }

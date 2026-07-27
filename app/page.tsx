@@ -3,6 +3,7 @@ import Developer from "@/components/home/developer/Developer";
 import Security from "@/components/home/security/Security";
 import { Box } from "@mui/material";
 import AnalyticsChart from "./components/dashboard/AnalyticsChart";
+import TransactionVolumeChart from "./components/dashboard/charts/TransactionVolumeChart";
 
 export default function Home() {
   const analyticsData = [
@@ -21,7 +22,7 @@ export default function Home() {
      <Hero/>
      <Developer/>
      <Security/>
-      <AnalyticsChart  />
+      {/* <TransactionVolumeChart  /> */}
      </Box>
   )
 }

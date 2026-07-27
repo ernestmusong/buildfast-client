@@ -34,9 +34,7 @@ interface DashboardLayoutProps {
   children: ReactNode;
 }
 
-export default function Layout({
-  children,
-}: DashboardLayoutProps) {
+export default function Layout({children}: DashboardLayoutProps) {
   return (
     <html
       lang="en"
@@ -44,9 +42,7 @@ export default function Layout({
     >
       <body style={{ fontFamily: 'var(--font-roboto), sans-serif' }}>
         <ClientProviders>
-         <DashboardLayout>
-          {children}
-      </DashboardLayout>
+         <DashboardLayout children={children} />
         </ClientProviders>
       </body>
     </html>

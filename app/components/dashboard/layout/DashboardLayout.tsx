@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import { ReactNode, useState } from "react";
 import { Box, Toolbar } from "@mui/material";
@@ -22,22 +22,29 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "background.default" }}>
       
-      {/* 1. Global Navigation Top Bar Component */}
+      {/* 1. Global Navigation AppBar Header (Uses zIndex offsets to sit safely on top of everything) */}
       <DashboardHeader onMenuClick={handleDrawerToggle} />
 
-      {/* 2. Permanent Desktop Sidebar (Strictly hidden on smaller breakpoints via CSS display engine) */}
-      <Box sx={{ display: { xs: "none", lg: "block" } }}>
+      {/* 2. Permanent Desktop Sidebar Column Rail */}
+      <Box 
+        component="nav" 
+        sx={{ 
+          width: { lg: DRAWER_WIDTH }, 
+          flexShrink: { lg: 0 }, 
+          display: { xs: "none", lg: "block" } 
+        }}
+      >
         <DashboardSidebar width={DRAWER_WIDTH} />
       </Box>
 
-      {/* 3. Mobile Navigation Sheet Dropdown Panel Overlays */}
+      {/* 3. Mobile Navigation Sheet Slide-Over Popovers */}
       <DashboardDrawer
         width={DRAWER_WIDTH}
         open={mobileOpen}
         onClose={handleDrawerToggle}
       />
 
-      {/* 4. Primary Content Base Canvas View Section */}
+      {/* 4. Primary Content Base Canvas View Section (Guarantees zero overlap with layout components) */}
       <Box
         component="main"
         sx={{
@@ -45,16 +52,22 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           display: "flex",
           flexDirection: "column",
           minWidth: 0,
-          // Applies the exact offset shift required to balance out the width of the sidebar
-          // pl: { lg: `${DRAWER_WIDTH}px` }, 
-          width: "100%",
+          // Applies an explicit left margin shift on desktop screens to clear the side nav rail cleanly
+          // ml: { lg: `${DRAWER_WIDTH}px` }, 
+          width: { lg: `calc(100% - ${DRAWER_WIDTH}px)` }
         }}
       >
-        {/* Generates structural padding offsets underneath the sticky header element */}
+        {/* Generates structural layout padding underneath the sticky header element */}
         <Toolbar />
         
         {/* Main Operational Child Layout View Engine */}
-        <Box sx={{ flex: 1, p: { xs: 2, md: 3, lg: 4 } }}>
+        <Box 
+          sx={{ 
+            flex: 1, 
+            px: { xs: 2, md: 5 }, 
+            py: 4 
+          }}
+        >
           {children}
         </Box>
       </Box>

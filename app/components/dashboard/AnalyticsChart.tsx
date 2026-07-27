@@ -34,7 +34,7 @@ export default function AnalyticsChart() {
         }}
       >
          <Stack direction="column" spacing={1} sx={{ width: '100%' }}>
-      <LineChart
+      {/* <LineChart
         xAxis={[{ data: xData, scaleType: 'point' }]}
         yAxis={[{ min: -3000, max: 4000, width: 50 }]}
         series={[{ data, area: true }]}
@@ -56,7 +56,7 @@ export default function AnalyticsChart() {
           id="switch-color-id-1"
         />
         <rect x={0} y={0} width={5} height="100%" fill="url(#switch-color-id-1)" />
-      </LineChart>
+      </LineChart> */}
       <LineChart
         xAxis={[{ data: xData, scaleType: 'point' }]}
         yAxis={[{ min: -3000, max: 4000, width: 50 }]}

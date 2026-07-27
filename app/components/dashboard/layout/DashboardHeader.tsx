@@ -13,6 +13,7 @@ import {
   Avatar,
   Tooltip,
 } from "@mui/material";
+
 import {
   Menu as MenuIcon,
   Notifications as NotificationsIcon,
@@ -47,8 +48,9 @@ export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
     borderBottom: "1px solid",
     borderColor: "divider",
     zIndex: (theme) => theme.zIndex.drawer + 1,
+     
     // Automatically applies a left spacing offset on desktop breakpoints to align text perfectly
-    pl: { lg: "280px" },
+    pl: { lg: "20px" },
   }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
@@ -121,19 +123,21 @@ export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
           onClick={handleProfileMenuClose}
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          sx={{zIndex: 1000,}}
+          
           // Complies with modern unified slotProps syntax required by MUI v9 core APIs
-          slotProps={{
-            paper: {
-              elevation: 2,
-              sx: {
-                mt: 1.5,
-                minWidth: 180,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-              },
-            },
-          }}
+          // slotProps={{
+          //   paper: {
+          //     elevation: 2,
+          //     sx: {
+          //       mt: 1.5,
+          //       minWidth: 180,
+          //       borderRadius: 2,
+          //       border: "1px solid",
+          //       borderColor: "divider",
+          //     },
+          //   },
+          // }}
         >
           <MenuItem onClick={handleProfileMenuClose}>My Profile</MenuItem>
           <MenuItem onClick={handleProfileMenuClose}>Merchant Account</MenuItem>
