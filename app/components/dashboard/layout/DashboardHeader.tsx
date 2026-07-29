@@ -2,6 +2,7 @@
 
 import { useState, MouseEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   AppBar,
   Box,
@@ -27,7 +28,7 @@ interface DashboardHeaderProps {
 }
 
 export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
-  // Menu anchors state management
+  const router = useRouter()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isProfileMenuOpen = Boolean(anchorEl);
 
@@ -151,7 +152,10 @@ export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
           <MenuItem onClick={handleProfileMenuClose}>My Profile</MenuItem>
           <MenuItem onClick={handleProfileMenuClose}>Merchant Account</MenuItem>
           <MenuItem onClick={handleProfileMenuClose}>Billing & Plans</MenuItem>
-          <MenuItem sx={{ color: "error.main" }} onClick={handleProfileMenuClose}>
+          <MenuItem sx={{ color: "error.main" }} onClick={() => {
+            handleProfileMenuClose();
+            router.replace('/')
+          }}>
             Sign Out
           </MenuItem>
         </Menu>

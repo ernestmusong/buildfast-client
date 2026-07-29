@@ -22,10 +22,13 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const router = useRouter()
 
   return (
     <Stack spacing={3}>
@@ -176,6 +179,7 @@ export default function SignupForm() {
         size="large"
         variant="contained"
         endIcon={<ArrowForwardRoundedIcon />}
+        onClick={() => router.replace('/dashboard')}
         sx={{
           py: 1.5,
           fontWeight: 600,

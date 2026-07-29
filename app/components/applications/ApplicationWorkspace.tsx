@@ -22,6 +22,8 @@ import ApplicationWebhookTab from "./tabs/ApplicationWebhookTab";
 import ApplicationSettingsTab from "./tabs/ApplicationSettingsTab";
 import ApplicationDangerZoneTab from "./tabs/ApplicationDangerZoneTab";
 import { Application } from "@/types/application/aplication";
+import { DepositForm } from "./dialogs/DepositDialog";
+import DepositDialog from "./dialogs/DepositDialog";
 import { Apps as DefaultAppIcon } from "@mui/icons-material";
 
 interface ApplicationListProps {
@@ -31,9 +33,23 @@ interface ApplicationListProps {
 export default function ApplicationWorkspace({
   application,
 }: ApplicationListProps) {
+
   const [tab, setTab] = useState(0);
 
+  const [depositOpen, setDepositOpen] =
+    useState(false);
+
+  const handleDeposit = (
+    data: DepositForm
+  ) => {
+    console.log(data);
+
+    setDepositOpen(false);
+  };
+
+
   return (
+    <>
     <Card>
       <CardContent>
 
@@ -55,7 +71,11 @@ export default function ApplicationWorkspace({
            
 
           <Stack direction="row" spacing={2}>
-            <Button variant="contained" disableElevation>
+            <Button 
+            variant="contained"
+             disableElevation
+             onClick={() => setDepositOpen(true)}
+             >
               Deposit
             </Button>
 
@@ -72,6 +92,13 @@ export default function ApplicationWorkspace({
         <Tabs
           value={tab}
           onChange={(_, v) => setTab(v)}
+          variant="scrollable"
+        scrollButtons="auto"
+         allowScrollButtonsMobile
+        aria-label="application tabs"
+          sx={{
+            overflowX: "auto"
+          }}
         >
           <Tab label="Overview" />
           <Tab label="Wallet" />
@@ -128,5 +155,15 @@ export default function ApplicationWorkspace({
 
       </CardContent>
     </Card>
+    <DepositDialog
+        open={depositOpen}
+        applicationName={application.name}
+        currentBalance={application.balance}
+        onClose={() =>
+          setDepositOpen(false)
+        }
+        onDeposit={handleDeposit}
+      />
+    </>
   );
 }

@@ -1,22 +1,39 @@
 "use client";
 
+import { useState } from "react";
 import { Card, CardContent, Typography, Button, Stack, Chip, Box } from "@mui/material";
 import { Apps as DefaultAppIcon } from "@mui/icons-material";
 import { Application } from "@/types/application/aplication";
+import CreateApplicationDialog, { CreateApplicationForm } from "./dialogs/CreateApplicationDialog";
 import Link from "next/link";
 
 interface ApplicationListProps {
   applications: Application[];
   selected: Application;
   onSelect: (app: Application) => void;
+  onCreate: () => void;
 }
 
 export default function ApplicationList({
   applications,
   selected,
   onSelect,
+  onCreate
 }: ApplicationListProps) {
+
+  const [createDialogOpen, setCreateDialogOpen] =
+  useState(false);
   
+  const handleCreateApplication = (
+  application: CreateApplicationForm
+) => {
+  console.log(application);
+
+  // Later:
+  // POST /applications
+
+  setCreateDialogOpen(false);
+};
   // Safe semantic color-mix mapper for variable environment chips
   const getChipColor = (env: string) => {
     switch (env.toLowerCase()) {
@@ -34,7 +51,11 @@ export default function ApplicationList({
       <CardContent>
         <Stack sx={{ mb: 3 }}>
           <Typography variant="h6">Applications</Typography>
-          <Button variant="contained" disableElevation>
+          <Button 
+          variant="contained" 
+          disableElevation
+         onClick={onCreate}
+          >
             + New Application
           </Button>
         </Stack>
