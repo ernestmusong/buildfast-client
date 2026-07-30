@@ -26,7 +26,7 @@ export default function ApplicationList({
     switch (env.toLowerCase()) {
       case "production":
         return "success" as const;
-      case "staging":
+      case "sandbox":
         return "warning" as const;
       default:
         return "default" as const;
@@ -107,7 +107,7 @@ export default function ApplicationList({
                     label={app.environment} 
                     color={getChipColor(app.environment)}
                     size="small" 
-                    variant="outlined" // Sleek semi-transparent appearance native to MUI v9
+                    // variant="outlined" // Sleek semi-transparent appearance native to MUI v9
                     sx={{ fontWeight: 600 }}
                   />
                 </Stack>

@@ -25,7 +25,14 @@ import { Application } from "@/types/application/aplication";
 import { DepositForm } from "./dialogs/DepositDialog";
 import DepositDialog from "./dialogs/DepositDialog";
 import WithdrawDialog from "./dialogs/WithdrawDialog";
-import { Apps as DefaultAppIcon } from "@mui/icons-material";
+import FileDownloadOutlinedIcon  from '@mui/icons-material/FileDownloadOutlined';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import SyncAltOutlinedIcon from '@mui/icons-material/SyncAltOutlined';
+import { 
+  Apps as DefaultAppIcon,
+  FileDownload as DepositIcon
+
+ } from "@mui/icons-material";
 
 interface ApplicationListProps {
   application: Application;
@@ -85,32 +92,45 @@ export default function ApplicationWorkspace({
                     >
                       Created: {application.createdAt}
                     </Typography>
-            <Typography color={application.color}>
-              {application.environment}
-            </Typography>
+            <Chip 
+                    label={application.environment} 
+                    color={application.color}
+                    size="small" 
+                    // variant="outlined" // Sleek semi-transparent appearance native to MUI v9
+                    sx={{ fontWeight: 600 }}
+                  />
             </Stack>
           </Box>
 
            
 
           <Stack direction="row" spacing={2}>
-            <Button 
+            <Button
+            size="small" 
             variant="contained"
              disableElevation
              onClick={() => setDepositOpen(true)}
+             startIcon={<FileUploadOutlinedIcon/>}
              >
               Deposit
             </Button>
 
-            <Button 
+            <Button
+            size="small" 
             variant="outlined" 
             disableElevation
              onClick={() => setDepositOpen(true)}
+             startIcon={<FileDownloadOutlinedIcon/>}
             >
               Withdraw
             </Button>
 
-            <Button variant="outlined" disableElevation>
+            <Button
+            size="small" 
+            variant="outlined" 
+            disableElevation
+            startIcon={<SyncAltOutlinedIcon/>}
+            >
               Transfer
             </Button>
           </Stack>
