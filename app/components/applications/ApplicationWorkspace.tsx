@@ -24,6 +24,7 @@ import ApplicationDangerZoneTab from "./tabs/ApplicationDangerZoneTab";
 import { Application } from "@/types/application/aplication";
 import { DepositForm } from "./dialogs/DepositDialog";
 import DepositDialog from "./dialogs/DepositDialog";
+import WithdrawDialog from "./dialogs/WithdrawDialog";
 import { Apps as DefaultAppIcon } from "@mui/icons-material";
 
 interface ApplicationListProps {
@@ -36,8 +37,8 @@ export default function ApplicationWorkspace({
 
   const [tab, setTab] = useState(0);
 
-  const [depositOpen, setDepositOpen] =
-    useState(false);
+  const [depositOpen, setDepositOpen] = useState(false);
+  const [withdrawOpen, setWithdrawOpen] = useState(false);
 
   const handleDeposit = (
     data: DepositForm
@@ -45,6 +46,13 @@ export default function ApplicationWorkspace({
     console.log(data);
 
     setDepositOpen(false);
+  };
+  const handleWithdraw = (
+    data: DepositForm
+  ) => {
+    console.log(data);
+
+    setWithdrawOpen(false);
   };
 
 
@@ -62,10 +70,25 @@ export default function ApplicationWorkspace({
             <Typography variant="h5">
               {application.name}
             </Typography>
-
-            <Typography color="text.secondary">
+            <Stack
+            spacing={1.5}
+            direction="row" 
+             
+             sx={{alignItems:"center", justifyContent: "space-between"  }}
+            >
+              <Typography 
+                      variant="caption" 
+                      sx={{ 
+                        fontFamily: "monospace", 
+                        color: "var(--mui-palette-text-secondary)" 
+                      }}
+                    >
+                      Created: {application.createdAt}
+                    </Typography>
+            <Typography color={application.color}>
               {application.environment}
             </Typography>
+            </Stack>
           </Box>
 
            
@@ -79,7 +102,11 @@ export default function ApplicationWorkspace({
               Deposit
             </Button>
 
-            <Button variant="outlined" disableElevation>
+            <Button 
+            variant="outlined" 
+            disableElevation
+             onClick={() => setDepositOpen(true)}
+            >
               Withdraw
             </Button>
 
@@ -163,6 +190,15 @@ export default function ApplicationWorkspace({
           setDepositOpen(false)
         }
         onDeposit={handleDeposit}
+      />
+    <WithdrawDialog
+        open={withdrawOpen}
+        applicationName={application.name}
+        currentBalance={application.balance}
+        onClose={() =>
+          setWithdrawOpen(false)
+        }
+        onDeposit={handleWithdraw}
       />
     </>
   );

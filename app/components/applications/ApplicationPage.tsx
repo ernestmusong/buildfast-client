@@ -16,11 +16,11 @@ import { DepositForm } from "./dialogs/DepositDialog";
 
 export default function ApplicationPage() {
 
-  const [selectedApp, setSelectedApp] = useState<Application>(applications[0]);
+  const [selectedAppId, setSelectedAppId] = useState<string>("app_01");
   const [depositOpen, setDepositOpen] = useState(false);
   const [createDialogOpen, setCreateDialogOpen] = useState(false);
 
-   
+   const selectedApp = applications.find((a) => a.id === selectedAppId) || applications[0]
 
   const handleDeposit = (
     data: DepositForm
@@ -44,7 +44,7 @@ const handleCreateApplication = (
         <ApplicationList
           applications={applications}
           selected={selectedApp}
-          onSelect={() => setSelectedApp(selectedApp)}
+          onSelect={(id) => setSelectedAppId(id)}
            onCreate={() =>
         setCreateDialogOpen(true)
       }

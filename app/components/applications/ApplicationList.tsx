@@ -4,13 +4,13 @@ import { useState } from "react";
 import { Card, CardContent, Typography, Button, Stack, Chip, Box } from "@mui/material";
 import { Apps as DefaultAppIcon } from "@mui/icons-material";
 import { Application } from "@/types/application/aplication";
-import CreateApplicationDialog, { CreateApplicationForm } from "./dialogs/CreateApplicationDialog";
+import CardActionArea from '@mui/material/CardActionArea';
 import Link from "next/link";
 
 interface ApplicationListProps {
   applications: Application[];
   selected: Application;
-  onSelect: (app: Application) => void;
+  onSelect: (id: string) => void;
   onCreate: () => void;
 }
 
@@ -21,19 +21,6 @@ export default function ApplicationList({
   onCreate
 }: ApplicationListProps) {
 
-  const [createDialogOpen, setCreateDialogOpen] =
-  useState(false);
-  
-  const handleCreateApplication = (
-  application: CreateApplicationForm
-) => {
-  console.log(application);
-
-  // Later:
-  // POST /applications
-
-  setCreateDialogOpen(false);
-};
   // Safe semantic color-mix mapper for variable environment chips
   const getChipColor = (env: string) => {
     switch (env.toLowerCase()) {
@@ -47,10 +34,16 @@ export default function ApplicationList({
   };
 
   return (
-    <Card>
-      <CardContent>
+    <Box>
+      
+      <Box>
         <Stack sx={{ mb: 3 }}>
-          <Typography variant="h6">Applications</Typography>
+          <Typography 
+          variant="h6"
+          sx={{textAlign: "center"}}
+          >
+            Applications
+          </Typography>
           <Button 
           variant="contained" 
           disableElevation
@@ -64,14 +57,33 @@ export default function ApplicationList({
           {applications.map((app) => (
             <Card
               key={app.id}
-              variant={selected?.id === app.id ? "outlined" : undefined}
+              // variant={selected?.id === app.id ? "outlined" : undefined}
               sx={{ cursor: "pointer" }}
+              
+            >
+              <CardActionArea
               onClick={() => {
                 console.log("selected app", app.id)
-                onSelect(app)
+                onSelect(app.id)
               }}
-            >
-              <CardContent>
+               data-active={selected.id === app.id ? '' : undefined}
+            sx={{
+    
+    // borderColor: "transparent",
+    
+
+    "&[data-active]": {
+      border: "1.5px solid",
+      borderColor: "primary.main",
+      // backgroundColor: "action.selected",
+    },
+
+    "&:hover": {
+      backgroundColor: "action.hover",
+    },
+  }}
+              >
+                   <CardContent>
                 {/* Upper Sub-Flex Row Section wrapping the branding elements */}
                 <Stack direction="row" spacing={1.5} sx={{ mb: 1, alignItems:"center"  }}>
                   <Box 
@@ -88,15 +100,6 @@ export default function ApplicationList({
                   
                   <Box sx={{ flexGrow: 1 }}>
                     <Typography sx={{ fontWeight: 600 }}>{app.name}</Typography>
-                    <Typography 
-                      variant="caption" 
-                      sx={{ 
-                        fontFamily: "monospace", 
-                        color: "var(--mui-palette-text-secondary)" 
-                      }}
-                    >
-                      Created: {app.createdAt}
-                    </Typography>
                   </Box>
                   
                   {/* Colored Environment UI Chip Layer */}
@@ -139,10 +142,12 @@ export default function ApplicationList({
                
                 </Stack>
               </CardContent>
+              </CardActionArea>
+            
             </Card>
           ))}
         </Stack>
-      </CardContent>
-    </Card>
+      </Box>
+    </Box>
   );
 }

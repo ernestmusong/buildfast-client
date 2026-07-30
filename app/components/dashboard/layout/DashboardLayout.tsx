@@ -10,7 +10,7 @@ interface DashboardLayoutProps {
   children: ReactNode;
 }
 
-const DRAWER_WIDTH = 280;
+const DRAWER_WIDTH = 200;
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -64,8 +64,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <Box 
           sx={{ 
             flex: 1, 
-            px: { xs: 2, md: 5 }, 
-            py: 4 
+            px: 2,
+            py: 2 
           }}
         >
           {children}

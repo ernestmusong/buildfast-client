@@ -30,6 +30,7 @@ interface DashboardHeaderProps {
 export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
   const router = useRouter()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const isProfileMenuOpen = Boolean(anchorEl);
 
   const handleProfileMenuOpen = (event: MouseEvent<HTMLElement>) => {
@@ -39,6 +40,10 @@ export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
   const handleProfileMenuClose = () => {
     setAnchorEl(null);
   };
+
+  const toggleProfileMenu = (event: MouseEvent<HTMLElement>) => {
+   isProfileMenuOpen ? setAnchorEl(null) : setAnchorEl(event.currentTarget)
+  }
 
   return (
     <AppBar
@@ -107,7 +112,7 @@ export default function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
 
           <Tooltip title="Account settings">
             <IconButton
-              onClick={handleProfileMenuOpen}
+              onClick={toggleProfileMenu}
               size="small"
               sx={{ ml: 1 }}
               aria-controls={isProfileMenuOpen ? "profile-menu" : undefined}
