@@ -5,7 +5,7 @@ import DocsSidebar from "@/components/docs/layout/DocsSidebar";
 import DocsPlayground from "@/components/docs/layout/DocsPlayground";
 
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function DocsLayout({

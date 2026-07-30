@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import {
    
@@ -21,6 +22,7 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter()
 
   return (
     <Stack spacing={3}>
@@ -80,6 +82,7 @@ export default function LoginForm() {
         size="large"
         variant="contained"
         endIcon={<ArrowForwardRoundedIcon />}
+        onClick={() => router.replace('/dashboard')}
         sx={{
           py: 1.5,
           fontWeight: 600,

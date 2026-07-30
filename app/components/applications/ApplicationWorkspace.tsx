@@ -1,0 +1,225 @@
+"use client";
+
+import { useState } from "react";
+
+import {
+  Card,
+  CardContent,
+  Tabs,
+  Chip,
+  Tab,
+  Box,
+  Stack,
+  Button,
+  Typography,
+} from "@mui/material";
+
+import ApplicationOverview from "./tabs/ApplicationOverview";
+import ApplicationWalletTab from "./tabs/ApplicationWalletTab";
+import ApplicationSecurityTab from "./tabs/ApplicationSecurityTab";
+import ApplicationApiKeysTab from "./tabs/ApplicationApiKeysTab";
+import ApplicationWebhookTab from "./tabs/ApplicationWebhookTab";
+import ApplicationSettingsTab from "./tabs/ApplicationSettingsTab";
+import ApplicationDangerZoneTab from "./tabs/ApplicationDangerZoneTab";
+import { Application } from "@/types/application/aplication";
+import { DepositForm } from "./dialogs/DepositDialog";
+import DepositDialog from "./dialogs/DepositDialog";
+import WithdrawDialog from "./dialogs/WithdrawDialog";
+import FileDownloadOutlinedIcon  from '@mui/icons-material/FileDownloadOutlined';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import SyncAltOutlinedIcon from '@mui/icons-material/SyncAltOutlined';
+import { 
+  Apps as DefaultAppIcon,
+  FileDownload as DepositIcon
+
+ } from "@mui/icons-material";
+
+interface ApplicationListProps {
+  application: Application;
+}
+
+export default function ApplicationWorkspace({
+  application,
+}: ApplicationListProps) {
+
+  const [tab, setTab] = useState(0);
+
+  const [depositOpen, setDepositOpen] = useState(false);
+  const [withdrawOpen, setWithdrawOpen] = useState(false);
+
+  const handleDeposit = (
+    data: DepositForm
+  ) => {
+    console.log(data);
+
+    setDepositOpen(false);
+  };
+  const handleWithdraw = (
+    data: DepositForm
+  ) => {
+    console.log(data);
+
+    setWithdrawOpen(false);
+  };
+
+
+  return (
+    <>
+    <Card>
+      <CardContent>
+
+        <Stack
+          direction="row"
+         sx={{ justifyContent:"space-between", mb:3}}
+           
+        >
+          <Box>
+            <Typography variant="h5">
+              {application.name}
+            </Typography>
+            <Stack
+            spacing={1.5}
+            direction="row" 
+             
+             sx={{alignItems:"center", justifyContent: "space-between"  }}
+            >
+              <Typography 
+                      variant="caption" 
+                      sx={{ 
+                        fontFamily: "monospace", 
+                        color: "var(--mui-palette-text-secondary)" 
+                      }}
+                    >
+                      Created: {application.createdAt}
+                    </Typography>
+            <Chip 
+                    label={application.environment} 
+                    color={application.color}
+                    size="small" 
+                    // variant="outlined" // Sleek semi-transparent appearance native to MUI v9
+                    sx={{ fontWeight: 600 }}
+                  />
+            </Stack>
+          </Box>
+
+           
+
+          <Stack direction="row" spacing={2}>
+            <Button
+            size="small" 
+            variant="contained"
+             disableElevation
+             onClick={() => setDepositOpen(true)}
+             startIcon={<FileUploadOutlinedIcon/>}
+             >
+              Deposit
+            </Button>
+
+            <Button
+            size="small" 
+            variant="outlined" 
+            disableElevation
+             onClick={() => setDepositOpen(true)}
+             startIcon={<FileDownloadOutlinedIcon/>}
+            >
+              Withdraw
+            </Button>
+
+            <Button
+            size="small" 
+            variant="outlined" 
+            disableElevation
+            startIcon={<SyncAltOutlinedIcon/>}
+            >
+              Transfer
+            </Button>
+          </Stack>
+        </Stack>
+
+        <Tabs
+          value={tab}
+          onChange={(_, v) => setTab(v)}
+          variant="scrollable"
+        scrollButtons="auto"
+         allowScrollButtonsMobile
+        aria-label="application tabs"
+          sx={{
+            overflowX: "auto"
+          }}
+        >
+          <Tab label="Overview" />
+          <Tab label="Wallet" />
+          <Tab label="Security" />
+          <Tab label="API Keys" />
+          <Tab label="Webhooks" />
+          <Tab label="Settings" />
+          <Tab label="Danger Zone" />
+        </Tabs>
+
+        <Box sx={{mt:3}}>
+          {tab === 0 && (
+            <ApplicationOverview
+              application={application}
+            />
+          )}
+
+          {tab === 1 && (
+            <ApplicationWalletTab
+               
+            />
+          )}
+
+          {tab === 2 && (
+            <ApplicationSecurityTab
+              application={application}
+            />
+          )}
+
+          {tab === 3 && (
+            <ApplicationApiKeysTab
+              application={application}
+            />
+          )}
+
+          {tab === 4 && (
+            <ApplicationWebhookTab
+              application={application}
+            />
+          )}
+
+          {tab === 5 && (
+            <ApplicationSettingsTab
+              application={application}
+            />
+          )}
+
+          {tab === 6 && (
+            <ApplicationDangerZoneTab
+               
+            />
+          )}
+        </Box>
+
+      </CardContent>
+    </Card>
+    <DepositDialog
+        open={depositOpen}
+        applicationName={application.name}
+        currentBalance={application.balance}
+        onClose={() =>
+          setDepositOpen(false)
+        }
+        onDeposit={handleDeposit}
+      />
+    <WithdrawDialog
+        open={withdrawOpen}
+        applicationName={application.name}
+        currentBalance={application.balance}
+        onClose={() =>
+          setWithdrawOpen(false)
+        }
+        onDeposit={handleWithdraw}
+      />
+    </>
+  );
+}

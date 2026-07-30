@@ -1,11 +1,12 @@
+import { ReactNode } from "react";
+import { ClientProviders } from "@/providers/providers";
+
+import OnboardingLayout from "@/components/onboarding/OnboardingLayout";
+
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Roboto } from 'next/font/google';
-
-import { ClientProviders } from "@/providers/providers";
-import Header from "@/components/layout/header/Header";
-import Footer from "@/components/layout/footer/Footer";
-import MarkettingLayout from "@/components/layout/MarkettingLayout";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -19,32 +20,29 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
-  title: "BuildFast",
-  description: "Mobile money and Orange Money payment Aggregator in Cameroon",
+  title: "Merchant Onbaording",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+interface DashboardLayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout({children}: DashboardLayoutProps) {
   return (
     <html
       lang="en"
       className={geistSans.variable}
-      // className={roboto.variable}
     >
       <body style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}>
         <ClientProviders>
-          <MarkettingLayout>
-          {children}
-          </MarkettingLayout>
+         <OnboardingLayout children={children} />
         </ClientProviders>
       </body>
     </html>
