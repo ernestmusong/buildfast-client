@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ClientProviders } from "@/providers/providers";
+import { ClientProviders } from "@/providers/ThemeProvider";
 
 import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
 
