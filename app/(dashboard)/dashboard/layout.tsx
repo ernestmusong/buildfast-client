@@ -1,50 +1,75 @@
-import { ReactNode } from "react";
-import { ClientProviders } from "@/providers/ThemeProvider";
+// import { ReactNode } from "react";
+// import { ClientProviders } from "@/providers/ThemeProvider";
 
-import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
+// import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
 
 
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Roboto } from 'next/font/google';
+// import type { Metadata } from "next";
+// import { Geist, Geist_Mono } from "next/font/google";
+// import { Roboto } from 'next/font/google';
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto', // Creates a CSS variable name
-});
+// const roboto = Roboto({
+//   weight: ['300', '400', '500', '700'],
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-roboto', // Creates a CSS variable name
+// });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
 //   subsets: ["latin"],
 // });
 
-export const metadata: Metadata = {
-  title: "Dashboad",
-};
+// // const geistMono = Geist_Mono({
+// //   variable: "--font-geist-mono",
+// //   subsets: ["latin"],
+// // });
 
+// export const metadata: Metadata = {
+//   title: "Dashboad",
+// };
+
+
+// interface DashboardLayoutProps {
+//   children: ReactNode;
+// }
+
+// export default function Layout({children}: DashboardLayoutProps) {
+//   return (
+//     <html
+//       lang="en"
+//       className={geistSans.variable}
+//     >
+//       <body style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}>
+//         <ClientProviders>
+//          <DashboardLayout children={children} />
+//         </ClientProviders>
+//       </body>
+//     </html>
+//   );
+// }
+
+
+
+import { ReactNode } from "react";
+import { ClientProviders } from "@/providers/ThemeProvider";
+import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard", // Fixed minor typo from "Dashboad"
+};
 
 interface DashboardLayoutProps {
   children: ReactNode;
 }
 
-export default function Layout({children}: DashboardLayoutProps) {
+export default function Layout({ children }: DashboardLayoutProps) {
   return (
-    <html
-      lang="en"
-      className={geistSans.variable}
-    >
-      <body style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}>
-        <ClientProviders>
-         <DashboardLayout children={children} />
-        </ClientProviders>
-      </body>
-    </html>
+    <ClientProviders>
+      <DashboardLayout>
+        {children}
+      </DashboardLayout>
+    </ClientProviders>
   );
 }

@@ -4,6 +4,7 @@ import * as React from 'react';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type {} from '@mui/x-charts/themeAugmentation';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import CssBaseline from '@mui/material/CssBaseline';
 
 const baseTheme = createTheme();
@@ -129,6 +130,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
     <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+         <InitColorSchemeScript attribute="data" />
         {children}
       </ThemeProvider>
     </AppRouterCacheProvider>

@@ -1,8 +1,3 @@
-const endpoints = {
-    siteTitle: 'BETXXX',
-    apiVersion: 'v1',
-    siteUrl: 'https://builfastcm.netlify.app/',
-    apiUrl: 'http://localhost:5000/',
-}
-
-export default endpoints
+export const register = '/auth/register';
+    export const login = '/auth/login';
+    export const apiUrl = 'http://localhost:8000/api/v1';
